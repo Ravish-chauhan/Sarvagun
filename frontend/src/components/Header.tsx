@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const Header = () => {
@@ -43,12 +44,19 @@ const Header = () => {
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-xl">M</span>
+                        <div className="w-16 h-16 xl:w-20 xl:h-20">
+                            <Image
+                                src="/logo6-cropped.svg"
+                                alt="Sarvagun Ion Logo"
+                                width={64}
+                                height={64}
+                                className="w-full h-full object-contain"
+                                priority
+                            />
                         </div>
-                        <div className="flex flex-col leading-tight">
-                            <span className="text-xl font-bold text-gray-900 dark:text-gray-100">MedSupply</span>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">Surgical Equipment</span>
+                        <div className="flex flex-col leading-none">
+                            <h1 className="text-xl md:text-2xl font-bold font-montserrat uppercase leading-none" style={{color: '#0b2e4f'}}>Sarvagun</h1>
+                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-none">Enterprises</p>
                         </div>
                     </Link>
 

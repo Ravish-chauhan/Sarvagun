@@ -89,26 +89,26 @@ const CategoriesSection = () => {
                                 {/* Content */}
                                 <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-end">
                                     {/* Floating Badge */}
-                                    <div className="absolute top-3 right-3 translate-y-[-10px] opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out">
+                                    <div className="absolute top-3 right-3">
                                         <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
                                             {category.productCount}+
                                         </span>
                                     </div>
 
-                                    <div className="transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                                    <div className="transform group-hover:translate-y-0 transition-transform duration-300">
                                         <h3 className={`font-bold text-white leading-tight mb-0.5 ${index === 0 ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'}`}>
                                             {category.name}
                                         </h3>
 
                                         {index === 0 && (
-                                            <p className="text-gray-300 text-xs sm:text-sm line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity delay-75 duration-300 mb-2 font-medium">
+                                            <p className="text-gray-300 text-xs sm:text-sm line-clamp-2 transition-opacity delay-75 duration-300 mb-2 font-medium">
                                                 {category.description}
                                             </p>
                                         )}
 
-                                        <div className={`flex items-center text-accent font-semibold text-xs tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-max ${index !== 0 ? 'mt-1' : ''}`}>
-                                            View All
-                                            <ArrowRight className="ml-1 h-3 w-3" />
+                                        <div className={`flex items-center text-accent font-semibold text-xs tracking-wide transition-opacity duration-300 w-max ${index !== 0 ? 'mt-1' : ''}`}>
+                                            View Products
+                                            <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
                                         </div>
                                     </div>
                                 </div>
