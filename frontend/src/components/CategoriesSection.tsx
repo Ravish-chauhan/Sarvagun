@@ -14,24 +14,43 @@ import imgDisposables from "@/assets/category-disposables.png";
 
 // Map slugs to local matched assets
 const categoryImages: Record<string, StaticImageData> = {
-    "general-surgery": imgSurgery,
-    "orthopedic": imgOrthopedic,
-    "gynecology": imgGynecology,
-    "diagnostic": imgDiagnostic,
-    "disposables": imgDisposables,
+    "medical-consumables": imgDisposables,
+    "surgical-supplies": imgSurgery,
+    "hospital-infrastructure": imgOrthopedic,
+    "icu-diagnostic-critical": imgDiagnostic,
 };
 
 const CategoriesSection = () => {
     return (
-        <section className="pt-8 pb-16 lg:pt-12 lg:pb-24 bg-gray-50">
+        <section className="relative pt-20 pb-8 lg:pt-24 lg:pb-12 bg-[#eff8ff] overflow-hidden">
+            {/* Decorative Top Right Bars */}
+            <div className="absolute top-0 right-0 z-0 flex gap-2 sm:gap-3 lg:gap-4 pr-4 sm:pr-8 lg:pr-12 opacity-20 pointer-events-none">
+                {/* Bar 1 (Small) */}
+                <div className="w-2.5 h-12 sm:w-3.5 sm:h-20 lg:w-4 lg:h-24 bg-[#3cacae]"></div>
+                {/* Bar 2 (Big) */}
+                <div className="w-2.5 h-20 sm:w-3.5 sm:h-28 lg:w-4 lg:h-36 bg-[#3cacae]"></div>
+                {/* Bar 3 (Biggest) */}
+                <div className="w-2.5 h-28 sm:w-3.5 sm:h-40 lg:w-4 lg:h-52 bg-[#3cacae]"></div>
+            </div>
+
+            {/* Decorative Plus Sign - Top Right */}
+            <div className="absolute top-4 right-20 sm:top-6 sm:right-32 lg:top-10 lg:right-48 z-0 opacity-20 pointer-events-none text-[#3cacae] text-3xl sm:text-4xl lg:text-5xl font-black leading-none select-none">
+                +
+            </div>
+
+            {/* Decorative Plus Sign - Bottom Left */}
+            <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-12 lg:bottom-12 lg:left-20 z-0 opacity-40 pointer-events-none text-[#3cacae] text-4xl sm:text-5xl lg:text-6xl font-black leading-none select-none">
+                +
+            </div>
+
             {/* Container aligned with HeroSection margins */}
-            <div className="w-full px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
+            <div className="relative z-10 w-full px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 animate-fade-up">
-                    <span className="text-accent font-bold text-sm uppercase tracking-wider">
-                        Our Products
+                    <span className="text-[#3cacae] font-bold text-sm uppercase tracking-wider">
+                        ✦ Our Products
                     </span>
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mt-4 mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#044581] mt-4 mb-6 tracking-tight">
                         Browse by Category
                     </h2>
                     <p className="text-gray-500 text-lg sm:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
@@ -90,7 +109,7 @@ const CategoriesSection = () => {
                                 <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-end">
                                     {/* Floating Badge */}
                                     <div className="absolute top-3 right-3">
-                                        <span className="bg-white/20 backdrop-blur-md text-white border border-white/30 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
+                                        <span className="bg-[#3cacae] text-white border border-[#3cacae] text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
                                             {category.productCount}+
                                         </span>
                                     </div>
@@ -106,7 +125,7 @@ const CategoriesSection = () => {
                                             </p>
                                         )}
 
-                                        <div className={`flex items-center text-accent font-semibold text-xs tracking-wide transition-opacity duration-300 w-max ${index !== 0 ? 'mt-1' : ''}`}>
+                                        <div className={`flex items-center text-[#3cacae] font-semibold text-xs tracking-wide transition-opacity duration-300 w-max ${index !== 0 ? 'mt-1' : ''}`}>
                                             View Products
                                             <ArrowRight className="ml-1 h-3 w-3 group-hover:translate-x-1 transition-transform duration-300" />
                                         </div>
@@ -116,7 +135,19 @@ const CategoriesSection = () => {
                         );
                     })}
                 </div>
+
+                {/* View All Link */}
+                <div className="flex justify-end mt-6">
+                    <Link
+                        href="/products"
+                        className="inline-flex items-center text-[#3cacae] font-semibold text-sm hover:text-[#3cacae]/80 transition-colors group"
+                    >
+                        View All
+                        <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                    </Link>
+                </div>
             </div>
+
         </section>
     );
 };

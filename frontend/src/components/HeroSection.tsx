@@ -52,7 +52,7 @@ const HeroSection = () => {
             {/* Content - Full Width Grid */}
             <div className="w-full relative z-10 h-full flex flex-col lg:grid lg:grid-cols-2 xl:grid-cols-[60%_40%] lg:gap-0 lg:items-center">
                 {/* Left side - Text content */}
-                <div className="animate-fade-up text-center lg:text-left px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-0 xl:pr-0 w-full xl:-mt-12">
+                <div className="animate-fade-up text-center lg:text-left px-6 sm:px-12 lg:pl-12 xl:pl-24 2xl:pl-16 lg:pr-0 xl:pr-0 w-full xl:-mt-12">
 
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-white tracking-tight">
                         Premium Medical
@@ -105,7 +105,7 @@ const HeroSection = () => {
                 </div>
 
                 {/* Right side - Desktop Strip Effect & Images (Flush Right) */}
-                <div className="relative hidden lg:flex items-center justify-end h-[600px] w-full perspective-1000">
+                <div className="relative hidden lg:flex items-center justify-end h-[600px] w-full perspective-1000 2xl:justify-center 2xl:mr-16">
 
                     {/* Hemi-Circle Strips (No Fill, Flush Right) */}
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[400px] h-[800px] overflow-hidden z-10 pointer-events-none">
@@ -120,7 +120,7 @@ const HeroSection = () => {
                     </div>
 
                     {/* Floating equipment images - Pushed to right - Removed Spacing */}
-                    <div className="relative w-[500px] h-[500px] flex items-center justify-center z-20">
+                    <div className="relative w-[500px] h-[500px] flex items-center justify-center z-20 2xl:-ml-24">
                         {equipmentItems.map((item, index) => (
                             <div
                                 key={item.alt}
@@ -159,7 +159,7 @@ const HeroSection = () => {
                     </div>
 
                     {/* Navigation dots - Pushed further right - Removed/Reduced spacing */}
-                    <div className="absolute right-[20px] top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30">
+                    <div className="absolute right-[20px] top-1/2 -translate-y-1/2 flex flex-col gap-4 z-30 2xl:right-[40px]">
                         {equipmentItems.map((_, index) => (
                             <button
                                 key={index}
@@ -217,7 +217,7 @@ const HeroSection = () => {
                 >
                     <path
                         d="M0,60 C400,160 800,-40 1200,60 V0 H0 Z"
-                        className="fill-gray-50"
+                        className="fill-white"
                         opacity="1"
                         transform="rotate(180 600 60)"
                     ></path>

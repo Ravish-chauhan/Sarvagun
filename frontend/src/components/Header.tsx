@@ -23,8 +23,8 @@ const Header = () => {
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
             {/* Top Bar */}
-            <div className="hidden md:block bg-primary text-primary-foreground py-2">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-sm">
+            <div className="hidden md:block bg-cyan-500 text-white py-2">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:pl-6 flex justify-between items-center text-sm">
                     <div className="flex items-center gap-6">
                         <a href="tel:+911234567890" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                             <Phone className="w-4 h-4" />
@@ -40,23 +40,19 @@ const Header = () => {
             </div>
 
             {/* Main Navigation */}
-            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:pl-4 2xl:pl-0">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2">
-                        <div className="w-16 h-16 xl:w-20 xl:h-20">
+                    <Link href="/" className="flex items-center mt-2 2xl:-ml-32">
+                        <div className="w-50 h-16 xl:w-72 xl:h-20">
                             <Image
-                                src="/logo6-cropped.svg"
-                                alt="Sarvagun Ion Logo"
-                                width={64}
-                                height={64}
+                                src="/logonew-tight.svg"
+                                alt="Sarvagun Logo"
+                                width={108}
+                                height={80}
                                 className="w-full h-full object-contain"
                                 priority
                             />
-                        </div>
-                        <div className="flex flex-col leading-none">
-                            <h1 className="text-xl md:text-2xl font-bold font-montserrat uppercase leading-none" style={{color: '#0b2e4f'}}>Sarvagun</h1>
-                            <p className="text-xs text-gray-600 dark:text-gray-400 leading-none">Enterprises</p>
                         </div>
                     </Link>
 
