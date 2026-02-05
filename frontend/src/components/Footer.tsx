@@ -79,7 +79,7 @@ const Footer = () => {
                         <ul className="space-y-4">
                             {footerLinks.company.map((link) => (
                                 <li key={link.label}>
-                                    <Link href={link.href} className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    <Link href={link.href} className="text-white hover:text-[#3cacae] transition-colors flex items-center group">
                                         <span className="w-0 overflow-hidden group-hover:w-2 mr-0 group-hover:mr-2 transition-all duration-300 h-[2px] bg-[#3cacae]"></span>
                                         {link.label}
                                     </Link>
@@ -93,7 +93,7 @@ const Footer = () => {
                         <ul className="space-y-4">
                             {footerLinks.products.map((link) => (
                                 <li key={link.label}>
-                                    <Link href={link.href} className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    <Link href={link.href} className="text-white hover:text-[#3cacae] transition-colors flex items-center group">
                                         <span className="w-0 overflow-hidden group-hover:w-2 mr-0 group-hover:mr-2 transition-all duration-300 h-[2px] bg-[#3cacae]"></span>
                                         {link.label}
                                     </Link>
@@ -108,17 +108,19 @@ const Footer = () => {
                         <ul className="space-y-5">
                             <li className="flex items-start gap-4">
                                 <MapPin className="w-6 h-6 text-[#3cacae] shrink-0" />
-                                <span className="text-gray-400">
-                                    Lucknow, UP, 226028<br />India
+                                <span className="text-white">
+                                    H No.58-Kh-No-359/1 Ward-Bharwara, Malhaur, Mohalla-Nizampur, Lucknow, UP, 226028
+                                </span>
+                            </li>
+                            <li className="flex items-start gap-4">
+                                <Phone className="w-5 h-5 text-[#3cacae] shrink-0 mt-1" />
+                                <span className="text-white">
+                                    +91 95550 88558, +91 73552 29509,<br />+91 93359 12006
                                 </span>
                             </li>
                             <li className="flex items-center gap-4">
-                                <Phone className="w-5 h-5 text-[#3cacae] shrink-0" />
-                                <span className="text-gray-400">+91 98765 43210</span>
-                            </li>
-                            <li className="flex items-center gap-4">
                                 <Mail className="w-5 h-5 text-[#3cacae] shrink-0" />
-                                <span className="text-gray-400 break-all">sales@sarvagunenterprises.com</span>
+                                <span className="text-white break-all">sales@sarvagunenterprises.com</span>
                             </li>
                         </ul>
                     </div>

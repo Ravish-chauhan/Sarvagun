@@ -12,6 +12,8 @@ import StatsSection from "@/components/StatsSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import ParallaxSection from "@/components/ParallaxSection";
 
+import FloatingActionButton from "@/components/FloatingActionButton";
+
 export default function Home() {
   return (
     <main>
@@ -28,6 +30,7 @@ export default function Home() {
       <ContactSection />
       <FAQSection />
       {/* <WhyChooseUsSection /> */}
+      <FloatingActionButton />
     </main>
   );
 }

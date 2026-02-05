@@ -6,18 +6,21 @@ import { ArrowRight } from "lucide-react";
 import { categories } from "@/data/products";
 
 // Import local assets
-import imgSurgery from "@/assets/category-surgery.png";
+import imgSurgery from "@/assets/surgical-cat.svg";
 import imgOrthopedic from "@/assets/category-orthopedic.png";
 import imgGynecology from "@/assets/category-gynecology.png";
 import imgDiagnostic from "@/assets/category-diagnostic.png";
 import imgDisposables from "@/assets/category-disposables.png";
+import imgMedicalConsumable from "@/assets/medical-consumable.svg";
+import imgHospitalInfra from "@/assets/hospital-infra.svg";
 
 // Map slugs to local matched assets
 const categoryImages: Record<string, StaticImageData> = {
-    "medical-consumables": imgDisposables,
+    "medical-consumables": imgMedicalConsumable,
     "surgical-supplies": imgSurgery,
-    "hospital-infrastructure": imgOrthopedic,
+    "hospital-infrastructure": imgHospitalInfra,
     "icu-diagnostic-critical": imgDiagnostic,
+    "orthopedic-supplies": imgOrthopedic,
 };
 
 const CategoriesSection = () => {
@@ -71,9 +74,6 @@ const CategoriesSection = () => {
                         // [ Item 0 (2x2) ] [ Item 1 (1x2) ] [ Item 2 (1x1) ]
                         // [   ...        ] [    ...       ] [ Item 3 (1x1) ]
 
-                        // let mobileClass = "col-span-2";
-                        // let desktopClass = "";
-
                         const layoutClass = (() => {
                             switch (index) {
                                 case 0: return "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2"; // Big item
@@ -87,18 +87,18 @@ const CategoriesSection = () => {
                         return (
                             <Link
                                 key={category.id}
-                                href={`/category/${category.slug}`}
+                                href={`/products?category=${category.id}`}
                                 className={`group relative overflow-hidden rounded-2xl ${layoutClass} shadow-sm hover:shadow-lg transition-all duration-300 ease-out border border-gray-100 block`}
                             >
                                 {/* Background Image */}
                                 <div className="absolute inset-0 w-full h-full">
                                     <Image
-                                        src={categoryImages[category.slug]}
+                                        src={categoryImages[category.id]}
                                         alt={category.name}
                                         fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                        className={`object-cover ${category.id === 'orthopedic-supplies' ? 'object-bottom' : 'object-top'} transition-transform duration-700 group-hover:scale-105`}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        placeholder="blur"
+
                                     />
                                 </div>
 

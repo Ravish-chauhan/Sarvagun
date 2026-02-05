@@ -4,79 +4,17 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-
-// Mock Data for Categories (matching existing data structure concepts)
-const categories = [
-    { id: "medical-consumables", name: "Medical Consumables" },
-    { id: "surgical-supplies", name: "Surgical Supplies" },
-    { id: "hospital-infrastructure", name: "Hospital Infrastructure" },
-    { id: "icu-diagnostic-critical", name: "ICU & Diagnostics" },
-    { id: "rehabilitation-aids", name: "Rehabilitation Aids" },
-];
-
-// Mock Data for Products (6 per category for demo)
-const allProducts = [
-    // Medical Consumables
-    { id: 1, category: "medical-consumables", name: "N95 Surgical Masks", price: "₹250", desc: "High-filtration masks for medical use." },
-    { id: 2, category: "medical-consumables", name: "Latex Examination Gloves", price: "₹450", desc: "Powder-free disposable gloves box." },
-    { id: 3, category: "medical-consumables", name: "Disposable Syringes (5ml)", price: "₹120", desc: "Sterile single-use syringes pack." },
-    { id: 4, category: "medical-consumables", name: "Sterile Gauze Pads", price: "₹80", desc: "Absorbent cotton gauze for wounds." },
-    { id: 5, category: "medical-consumables", name: "IV Cannula Set", price: "₹65", desc: "Standard sterile IV cannula." },
-    { id: 6, category: "medical-consumables", name: "Surgical Tape", price: "₹40", desc: "Hypoallergenic paper tape." },
-
-    // Surgical Supplies
-    { id: 7, category: "surgical-supplies", name: "Scalpel Handle #3", price: "₹150", desc: "Stainless steel surgical handle." },
-    { id: 8, category: "surgical-supplies", name: "Surgical Forceps", price: "₹220", desc: "Precision thumb forceps." },
-    { id: 9, category: "surgical-supplies", name: "Needle Holder", price: "₹350", desc: "Mayo-Hegar needle holder." },
-    { id: 10, category: "surgical-supplies", name: "Surgical Scissors", price: "₹280", desc: "Sharp/Blunt operating scissors." },
-    { id: 11, category: "surgical-supplies", name: "Retractors", price: "₹550", desc: "Self-retaining retractors." },
-    { id: 12, category: "surgical-supplies", name: "Suture Kit", price: "₹400", desc: "Complete practice suture kit." },
-
-    // Hospital Infrastructure
-    { id: 13, category: "hospital-infrastructure", name: "Hospital Bed (Manual)", price: "₹15,000", desc: "Standard semi-fowler bed." },
-    { id: 14, category: "hospital-infrastructure", name: "IV Stand", price: "₹1,200", desc: "Adjustable height IV pole." },
-    { id: 15, category: "hospital-infrastructure", name: "Bedside Locker", price: "₹3,500", desc: "Metal bedside cabinet." },
-    { id: 16, category: "hospital-infrastructure", name: "Examination Couch", price: "₹5,000", desc: "Padded examination table." },
-    { id: 17, category: "hospital-infrastructure", name: "Overbed Table", price: "₹2,200", desc: "Adjustable food table." },
-    { id: 18, category: "hospital-infrastructure", name: "Crash Cart", price: "₹12,000", desc: "Emergency crash cart trolley." },
-
-    // ICU & Diagnostics
-    { id: 19, category: "icu-diagnostic-critical", name: "Pulse Oximeter", price: "₹800", desc: "Finger tip oxygen monitor." },
-    { id: 20, category: "icu-diagnostic-critical", name: "Digital Thermometer", price: "₹200", desc: "Fast reading thermometer." },
-    { id: 21, category: "icu-diagnostic-critical", name: "Stethoscope", price: "₹1,500", desc: "Classic dual-head stethoscope." },
-    { id: 22, category: "icu-diagnostic-critical", name: "BP Monitor", price: "₹1,800", desc: "Digital blood pressure gauge." },
-    { id: 23, category: "icu-diagnostic-critical", name: "Nebulizer Machine", price: "₹1,200", desc: "Compact compressor nebulizer." },
-    { id: 24, category: "icu-diagnostic-critical", name: "Glucometer Kit", price: "₹900", desc: "Blood glucose monitoring system." },
-];
+import Image from 'next/image';
+import { categories, products } from '@/data/products';
 
 const ProductShowcaseSection = () => {
     const [activeCategory, setActiveCategory] = useState(categories[0].id);
 
-    // Extend products to 9 items by repeating or mocking if necessary for the demo
-    const categoryProducts = allProducts.filter(p => p.category === activeCategory);
-    // Ensure we have enough items for the demo (9 needed)
-    const extendedProducts = [...categoryProducts];
-    if (categoryProducts.length > 0 && categoryProducts.length < 9) {
-        // Naive repetition to fill to 9 for demo purposes since we only have 6 hardcoded
-        let i = 0;
-        while (extendedProducts.length < 9) {
-            const original = categoryProducts[i % categoryProducts.length];
-            extendedProducts.push({ ...original, id: original.id + 1000 + extendedProducts.length });
-            i++;
-        }
-    }
+    // Filter products based on active category
+    const categoryProducts = products.filter(p => p.category === activeCategory);
 
-    // Slice 9 items total (we will control visibility with CSS)
-    const displayProducts = extendedProducts.slice(0, 9);
-
-
-    // Fallback if category has no products in our mock list
-    if (displayProducts.length === 0 && activeCategory === 'rehabilitation-aids') {
-        // Just fill with generic placeholders for demo
-        for (let i = 1; i <= 9; i++) {
-            displayProducts.push({ id: 100 + i, category: 'rehabilitation-aids', name: `Rehab Product ${i}`, price: "₹--", desc: "Description coming soon." });
-        }
-    }
+    // We want to show a preview, e.g., up to 9 items
+    const displayProducts = categoryProducts.slice(0, 9);
 
     return (
         <section className="py-16 lg:py-24 bg-white">
@@ -99,7 +37,7 @@ const ProductShowcaseSection = () => {
 
                     {/* Left Sidebar - Categories */}
                     <div className="w-full lg:w-1/4 shrink-0">
-                        <div className="sticky top-24">
+                        <div className="sticky top-32">
                             <h3 className="text-2xl font-bold text-[#044581] mb-6 hidden lg:block">Categories</h3>
 
                             {/* Desktop Sidebar List */}
@@ -152,24 +90,40 @@ const ProductShowcaseSection = () => {
                     {/* Right Content - Product Grid */}
                     <div className="w-full lg:w-3/4">
                         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                            {displayProducts.map((product, index) => (
+                            {displayProducts.map((product) => (
                                 <div
                                     key={product.id}
-                                    className={`bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer hover:scale-105 hover:-translate-y-2 transform-gpu flex-col ${index >= 6 ? 'hidden lg:flex' : 'flex'}`}
+                                    className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer hover:scale-105 hover:-translate-y-2 transform-gpu flex flex-col"
                                 >
                                     {/* Image Placeholder */}
-                                    <div className="w-full h-44 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center relative">
-                                        <span className="text-gray-400 text-xs sm:text-sm opacity-50">Product Image</span>
+                                    <div className="w-full aspect-square bg-white flex items-center justify-center relative p-4 group-hover:bg-gray-50 transition-colors">
+                                        <Image
+                                            src={product.image}
+                                            alt={product.name}
+                                            fill
+                                            className="object-contain"
+                                            sizes="(max-width: 768px) 50vw, 33vw"
+                                        />
+                                        {/* Essential Badge */}
+                                        {product.isEssential && (
+                                            <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-sm z-10">
+                                                ESSENTIAL
+                                            </div>
+                                        )}
                                     </div>
 
-                                    <div className="p-3 flex flex-col flex-1">
+                                    <div className="p-3 flex flex-col flex-1 border-t border-gray-100">
                                         <span className="text-[10px] sm:text-xs text-[#044581] font-medium uppercase mb-1">
                                             {categories.find(c => c.id === product.category)?.name || "Product"}
                                         </span>
 
-                                        <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-3 line-clamp-2 leading-tight flex-1">
+                                        <h4 className="font-semibold text-gray-900 text-sm sm:text-base mb-2 line-clamp-2 leading-tight flex-1">
                                             {product.name}
                                         </h4>
+
+                                        <p className="text-xs text-gray-500 line-clamp-2 mb-3">
+                                            {product.description}
+                                        </p>
 
                                         <div className="mt-auto">
                                             <Button className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs h-8 rounded-md transition-colors duration-300">
@@ -181,11 +135,18 @@ const ProductShowcaseSection = () => {
                             ))}
                         </div>
 
+                        {/* Empty State */}
+                        {displayProducts.length === 0 && (
+                            <div className="text-center py-12 bg-gray-50 rounded-lg border border-dashed border-gray-300">
+                                <p className="text-gray-500">Products coming soon for this category.</p>
+                            </div>
+                        )}
+
                         {/* View All Button (Bottom) */}
                         <div className="mt-12 flex justify-center lg:justify-start">
-                            <Link href="/products">
+                            <Link href={`/products?category=${activeCategory}`}>
                                 <Button className="bg-[#044581] hover:bg-[#033461] text-white px-8 py-6 text-lg rounded-full shadow-md hover:shadow-lg transition-all">
-                                    View All Products
+                                    View All {categories.find(c => c.id === activeCategory)?.name}
                                     <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>
@@ -199,3 +160,4 @@ const ProductShowcaseSection = () => {
 };
 
 export default ProductShowcaseSection;
+
