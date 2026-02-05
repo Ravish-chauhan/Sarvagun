@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Search, Filter, ArrowRight, Syringe, Pill, Stethoscope, Microscope, Activity } from 'lucide-react';
 import Header from '@/components/Header';
 
-const ProductsPage = () => {
+const ProductsContent = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
     const initialCategory = searchParams.get('category') || 'all';
@@ -24,7 +24,7 @@ const ProductsPage = () => {
         const checkScreenSize = () => {
             setIsLaptop(window.innerWidth >= 1024);
         };
-        
+
         checkScreenSize();
         window.addEventListener('resize', checkScreenSize);
         return () => window.removeEventListener('resize', checkScreenSize);
@@ -66,7 +66,7 @@ const ProductsPage = () => {
 
     const [currentPage, setCurrentPage] = useState(1);
     const [screenSize, setScreenSize] = useState('mobile');
-    
+
     useEffect(() => {
         const updateScreenSize = () => {
             if (window.innerWidth >= 1024) {
@@ -77,14 +77,14 @@ const ProductsPage = () => {
                 setScreenSize('mobile');
             }
         };
-        
+
         updateScreenSize();
         window.addEventListener('resize', updateScreenSize);
         return () => window.removeEventListener('resize', updateScreenSize);
     }, []);
-    
+
     const productsPerPage = screenSize === 'laptop' ? 16 : 12;
-    
+
     // Image carousel state
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const carouselImages = [
@@ -93,14 +93,14 @@ const ProductsPage = () => {
         '/assets/coat-nobg.png',
         '/assets/dr-nobg.png'
     ];
-    
+
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
         }, 3000);
         return () => clearInterval(interval);
     }, [carouselImages.length]);
-    
+
     const filteredProducts = products.filter((product) => {
         const matchesCategory = activeCategory === 'all' || product.category === activeCategory;
         const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -153,7 +153,7 @@ const ProductsPage = () => {
                         </div>
 
                         {/* Right side - Changing Medical Images */}
-                        <div 
+                        <div
                             className="hidden lg:flex items-center justify-center relative"
                             style={{
                                 justifyContent: window.innerWidth >= 1440 ? 'flex-end' : undefined,
@@ -164,16 +164,15 @@ const ProductsPage = () => {
                             <div className="relative w-[400px] h-[400px]">
                                 {/* Glow effect behind image */}
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-white/20 blur-[60px] rounded-full animate-pulse" />
-                                
+
                                 {/* Individual images with transitions */}
                                 {carouselImages.map((imageSrc, index) => (
                                     <div
                                         key={imageSrc}
-                                        className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out transform ${
-                                            index === currentImageIndex
+                                        className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ease-in-out transform ${index === currentImageIndex
                                                 ? 'opacity-100 scale-100 translate-x-0'
                                                 : 'opacity-0 scale-95 translate-x-8'
-                                        }`}
+                                            }`}
                                     >
                                         <Image
                                             src={imageSrc}
@@ -186,9 +185,9 @@ const ProductsPage = () => {
                                     </div>
                                 ))}
                             </div>
-                            
+
                             {/* Vertical Progress Bar - Right of images */}
-                            <div 
+                            <div
                                 className="flex flex-col gap-4 ml-6 lg:ml-4 xl:ml-6"
                                 style={{
                                     marginLeft: window.innerWidth >= 1440 ? '60px' : undefined,
@@ -199,26 +198,24 @@ const ProductsPage = () => {
                                     <button
                                         key={index}
                                         onClick={() => setCurrentImageIndex(index)}
-                                        className={`w-2 rounded-full transition-all duration-500 shadow-sm ${
-                                            index === currentImageIndex
+                                        className={`w-2 rounded-full transition-all duration-500 shadow-sm ${index === currentImageIndex
                                                 ? 'bg-white h-12 shadow-[0_0_15px_rgba(255,255,255,0.5)] opacity-100'
                                                 : 'bg-white/20 h-2 hover:bg-white/40 hover:h-4'
-                                        }`}
+                                            }`}
                                         aria-label={`View image ${index + 1}`}
                                     />
                                 ))}
                             </div>
-                            
+
                             {/* Progress Indicators - Below images */}
                             <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
                                 {carouselImages.map((_, index) => (
                                     <div
                                         key={index}
-                                        className={`h-1 rounded-full transition-all duration-300 ${
-                                            index === currentImageIndex 
-                                                ? 'w-8 bg-white' 
+                                        className={`h-1 rounded-full transition-all duration-300 ${index === currentImageIndex
+                                                ? 'w-8 bg-white'
                                                 : 'w-3 bg-white/40'
-                                        }`}
+                                            }`}
                                     />
                                 ))}
                             </div>
@@ -253,51 +250,51 @@ const ProductsPage = () => {
                         <>
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 animate-fade-up">
                                 {currentProducts.map((product) => (
-                                <div
-                                    key={product.id}
-                                    className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col hover:-translate-y-1"
-                                >
-                                    {/* Image Container */}
-                                    <div className="relative aspect-square w-full bg-white flex items-center justify-center p-4">
-                                        <Image
-                                            src={product.image}
-                                            alt={product.name}
-                                            fill
-                                            className="object-contain group-hover:scale-110 transition-transform duration-500"
-                                            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                                        />
+                                    <div
+                                        key={product.id}
+                                        className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col hover:-translate-y-1"
+                                    >
+                                        {/* Image Container */}
+                                        <div className="relative aspect-square w-full bg-white flex items-center justify-center p-4">
+                                            <Image
+                                                src={product.image}
+                                                alt={product.name}
+                                                fill
+                                                className="object-contain group-hover:scale-110 transition-transform duration-500"
+                                                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                                            />
 
-                                        {/* Essential Badge */}
-                                        {product.isEssential && (
-                                            <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] md:text-xs font-bold px-2 py-1 rounded-full shadow-sm z-10">
-                                                ESSENTIAL
+                                            {/* Essential Badge */}
+                                            {product.isEssential && (
+                                                <div className="absolute top-2 left-2 bg-red-500 text-white text-[10px] md:text-xs font-bold px-2 py-1 rounded-full shadow-sm z-10">
+                                                    ESSENTIAL
+                                                </div>
+                                            )}
+
+                                            {/* Category Badge (Optional, small) */}
+                                            <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur-sm">
+                                                {categories.find(c => c.id === product.category)?.name}
                                             </div>
-                                        )}
+                                        </div>
 
-                                        {/* Category Badge (Optional, small) */}
-                                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur-sm">
-                                            {categories.find(c => c.id === product.category)?.name}
+                                        {/* Content */}
+                                        <div className="p-3 md:p-4 flex flex-col flex-1 border-t border-gray-100">
+                                            <h3 className="font-semibold text-gray-900 text-sm md:text-lg mb-1 md:mb-2 line-clamp-2 leading-tight">
+                                                {product.name}
+                                            </h3>
+
+                                            <p className="text-gray-500 text-xs md:text-sm line-clamp-2 mb-3 flex-1">
+                                                {product.description}
+                                            </p>
+
+                                            <Button className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs md:text-sm h-8 md:h-10 rounded-lg transition-colors duration-300 mt-auto">
+                                                Enquire Now
+                                            </Button>
                                         </div>
                                     </div>
-
-                                    {/* Content */}
-                                    <div className="p-3 md:p-4 flex flex-col flex-1 border-t border-gray-100">
-                                        <h3 className="font-semibold text-gray-900 text-sm md:text-lg mb-1 md:mb-2 line-clamp-2 leading-tight">
-                                            {product.name}
-                                        </h3>
-
-                                        <p className="text-gray-500 text-xs md:text-sm line-clamp-2 mb-3 flex-1">
-                                            {product.description}
-                                        </p>
-
-                                        <Button className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs md:text-sm h-8 md:h-10 rounded-lg transition-colors duration-300 mt-auto">
-                                            Enquire Now
-                                        </Button>
-                                    </div>
-                                </div>
                                 ))}
                             </div>
-                            
+
                             {/* Pagination */}
                             {totalPages > 1 && (
                                 <div className="flex justify-center items-center mt-8 mb-12 gap-2">
@@ -308,11 +305,11 @@ const ProductsPage = () => {
                                     >
                                         Previous
                                     </button>
-                                    
+
                                     <span className="px-4 py-2 text-sm">
                                         Page {currentPage} of {totalPages}
                                     </span>
-                                    
+
                                     <button
                                         onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                                         disabled={currentPage === totalPages}
@@ -348,6 +345,14 @@ const ProductsPage = () => {
                 }
             </div>
         </div>
+    );
+};
+
+const ProductsPage = () => {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading Products...</div>}>
+            <ProductsContent />
+        </Suspense>
     );
 };
 
