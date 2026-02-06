@@ -146,7 +146,7 @@ const FeaturedProductsSection = () => {
                 transitionDuration: isDragging ? '0ms' : '500ms'
               }}
             >
-              {featuredProducts.map((product) => (
+              {featuredProducts.map((product) => product && (
                 <div 
                   key={product.id} 
                   className="flex-shrink-0 px-2"
