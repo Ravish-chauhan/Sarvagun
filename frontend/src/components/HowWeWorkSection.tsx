@@ -95,9 +95,7 @@ const HowWeWorkSection = () => {
         {/* CTA */}
         <div className="text-center mt-20">
           <a
-            href="https://wa.me/919876543210?text=Hello!%20I'm%20interested%20in%20your%20medical%20equipment.%20Please%20share%20the%20pricing%20details."
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/products"
             className="group inline-flex items-center gap-3 bg-[#3cacae] hover:bg-[#3cacae]/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />

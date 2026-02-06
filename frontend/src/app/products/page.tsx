@@ -145,9 +145,9 @@ const ProductsContent = () => {
                                             placeholder="Search equipment..."
                                             value={searchQuery}
                                             onChange={(e) => setSearchQuery(e.target.value)}
-                                            className="flex-1 px-3 md:px-3 py-3 md:py-2.5 text-sm md:text-base bg-transparent border-0 focus:outline-none text-white placeholder-white/60"
+                                            className="flex-1 px-2 min-[375px]:px-3 py-3 md:px-3 md:py-2.5 text-sm md:text-base bg-transparent border-0 focus:outline-none text-white placeholder-white/60"
                                         />
-                                        <button className="bg-[#044581] hover:bg-[#3cacae] text-white px-3 min-[375px]:px-4 py-3 md:px-6 md:py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-sm">
+                                        <button className="bg-[#044581] hover:bg-[#3cacae] text-white px-4 py-3 md:px-6 md:py-2.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-sm">
                                             Search
                                         </button>
                                     </div>
