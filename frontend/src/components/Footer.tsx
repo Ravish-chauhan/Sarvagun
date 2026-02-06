@@ -1,11 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Twitter, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Twitter, Mail, MapPin, Phone, ArrowUpRight, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const scrollToContact = () => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const footerLinks = {
         company: [
@@ -45,12 +56,13 @@ const Footer = () => {
                         </p>
                     </div>
                     <div>
-                        <Link href="#contact">
-                            <Button className="bg-white text-[#044581] hover:bg-[#3cacae] hover:text-white rounded-full px-8 py-7 text-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl group">
-                                Get a Quote
-                                <ArrowUpRight className="ml-2 w-5 h-5 group-hover:rotate-45 transition-transform duration-300" />
-                            </Button>
-                        </Link>
+                        <Button 
+                            onClick={scrollToContact}
+                            className="bg-white text-[#044581] hover:bg-[#3cacae] hover:text-white rounded-full px-8 py-7 text-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl group"
+                        >
+                            Get a Quote
+                            <ArrowUpRight className="ml-2 w-5 h-5 group-hover:rotate-45 transition-transform duration-300" />
+                        </Button>
                     </div>
                 </div>
 
@@ -127,12 +139,26 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                    <p>&copy; {currentYear} Sarvagun Enterprises. All rights reserved.</p>
-                    <div className="flex gap-8">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
+                <div className="border-t border-white/10 pt-8">
+                    {/* Go to Top - Mobile: Top, Desktop: Center */}
+                    <div className="flex justify-center mb-4 md:mb-6">
+                        <button 
+                            onClick={scrollToTop}
+                            className="flex items-center gap-2 text-white hover:text-[#3cacae] transition-colors group"
+                        >
+                            <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+                            Go to Top
+                        </button>
+                    </div>
+                    
+                    {/* Copyright and Links */}
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                        <p>&copy; {currentYear} Sarvagun Enterprises. All rights reserved.</p>
+                        <div className="flex items-center gap-8">
+                            <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
+                            <Link href="#" className="hover:text-white transition-colors">Terms</Link>
+                            <Link href="#" className="hover:text-white transition-colors">Sitemap</Link>
+                        </div>
                     </div>
                 </div>
             </div>

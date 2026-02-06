@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import FloatingActionButton from "@/components/FloatingActionButton";
 import { NextUIProvider } from "@nextui-org/react";
 
 
@@ -66,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} antialiased`}
       >
@@ -76,7 +75,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <FloatingActionButton />
 
       </body>
     </html>

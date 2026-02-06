@@ -9,9 +9,15 @@ import aboutImg2 from "@/assets/about-img-2.jpg";
 
 const AboutUsSection = () => {
   const [mounted, setMounted] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   useEffect(() => {
     setMounted(true);
+    setWindowWidth(window.innerWidth);
+    
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const features = [
@@ -24,7 +30,13 @@ const AboutUsSection = () => {
   if (!mounted) return null;
 
   return (
-    <section className="py-24 md:py-24 pb-40 md:pb-40 bg-white overflow-hidden">
+    <section 
+      className="py-24 md:py-24 pb-12 md:pb-40 bg-white overflow-hidden"
+      style={{
+        paddingTop: windowWidth === 1024 ? '3rem' : undefined,
+        paddingBottom: windowWidth === 1024 ? '4rem' : undefined
+      }}
+    >
       <div className="w-full px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side - Images */}
@@ -100,15 +112,11 @@ const AboutUsSection = () => {
             </h2>
 
             <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-              Sarvagun is a leading B2B wholesale distributor of medical and surgical
-              equipment. We serve hospitals, clinics, and healthcare facilities worldwide
-              with premium quality products at competitive prices.
+              Sarvagun Enterprises is a wholesale supplier of medical and surgical equipment, serving hospitals, clinics, diagnostic centers, and healthcare providers with quality-assured products and reliable sourcing.
             </p>
 
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Since 2009, we've been committed to providing healthcare professionals with
-              the tools they need to deliver exceptional patient care. Our extensive catalog
-              includes diagnostic equipment, surgical instruments, and patient monitoring systems.
+              We offer a comprehensive range that includes medical consumables, injectables, hospital chemicals, surgical supplies, and essential equipment. With a focus on consistency, transparent pricing, and responsive support, we help healthcare facilities meet their procurement needs efficiently.
             </p>
 
             {/* Features Grid */}

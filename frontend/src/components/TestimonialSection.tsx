@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star, User, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import medReviewImg from "@/assets/med-review.png";
 // Mock images or placeholders since we don't have the assets referenced in the prompt
 // Using gradients or standard placeholders instead of local imports that might fail
 
@@ -84,10 +86,11 @@ export default function TestimonialSection() {
                         <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[380px] md:h-[480px] w-full lg:-ml-16 bg-gray-100 group">
                             {/* Main Image - A professional medical setting or doctor */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-[#044581]/20 to-transparent z-10"></div>
-                            <img
-                                src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=800"
+                            <Image
+                                src={medReviewImg}
                                 alt="Medical Professional"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                fill
                             />
 
                         </div>

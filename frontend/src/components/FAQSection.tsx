@@ -7,24 +7,24 @@ import Link from "next/link";
 
 const faqs = [
     {
-        question: "Do you supply equipment for entire hospital setups?",
-        answer: "Yes, we specialize in turnkey hospital infrastructure projects. From ICU setups to operating theaters and general wards, we can supply and install the complete range of necessary medical equipment and furniture."
+        question: "What types of medical products do you supply?",
+        answer: "We supply a wide range of medical and surgical products, including consumables, surgical and OT supplies, injectables, hospital chemicals, orthopaedic instruments, and essential hospital equipment."
     },
     {
-        question: "Are your medical products certified?",
-        answer: "Absolutely. All our products undergo rigorous quality checks and are CE/ISO certified. Many of our critical care and surgical items are also FDA approved to ensure the highest safety standards for patient care."
+        question: "Do you work with hospitals, clinics, and distributors?",
+        answer: "Yes. We work with hospitals, clinics, diagnostic centers, medical stores, and healthcare distributors for wholesale and bulk supply requirements."
     },
     {
         question: "What is your typical delivery timeline for bulk orders?",
-        answer: "For in-stock items, we dispatch within 24-48 hours. For large bulk orders or specialized equipment, typical delivery ranges from 1-2 weeks depending on your location and customization requirements."
+        answer: "Delivery timelines depend on product availability and order size. Most bulk orders are processed and dispatched within a standard turnaround period after order confirmation."
     },
     {
-        question: "Do you offer post-sales service and warranty?",
-        answer: "We carry a standard 1-3 year warranty on most electronic equipment. We also have a dedicated biomedical engineering team for installation, calibration, and on-site annual maintenance contracts (AMC)."
+        question: "Do you supply equipment for entire hospital setups?",
+        answer: "Yes. We support complete hospital and clinic setups by supplying products across multiple categories and assisting with requirement-based sourcing."
     },
     {
-        question: "Can I request a demo before purchasing?",
-        answer: "Yes, for high-value equipment like ventilators, patient monitors, or surgical lights, we can arrange virtually guided demos or on-site demonstrations in select major cities."
+        question: "How can I enquire about a product or request a quotation?",
+        answer: "You can enquire through our website, WhatsApp, or contact details provided. Our team will assist you with availability and pricing."
     }
 ];
 
@@ -63,12 +63,13 @@ const FAQSection = () => {
                             <div className="relative z-10">
                                 <h4 className="text-xl font-bold mb-2">Still need help?</h4>
                                 <p className="text-white/80 mb-6 text-sm">Our expert support team is just a message away.</p>
-                                <Link href="/contact" className="inline-flex">
-                                    <Button className="bg-white text-[#044581] hover:bg-[#3cacae] hover:text-white border-0 rounded-full px-6 font-semibold transition-all duration-300">
-                                        <MessageCircle className="w-4 h-4 mr-2" />
-                                        Chat with Us
-                                    </Button>
-                                </Link>
+                                <Button 
+                                    className="bg-white text-[#044581] hover:bg-[#3cacae] hover:text-white border-0 rounded-full px-6 font-semibold transition-all duration-300"
+                                    onClick={() => window.open('https://wa.me/919555088558?text=Hi, I have a question', '_blank')}
+                                >
+                                    <MessageCircle className="w-4 h-4 mr-2" />
+                                    Chat with Us
+                                </Button>
                             </div>
                         </div>
                     </div>

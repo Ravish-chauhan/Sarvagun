@@ -83,11 +83,20 @@ const HeroSection = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-4 mb-10 justify-center lg:justify-start">
-                        <Button size="lg" className="h-12 px-8 text-base bg-accent hover:bg-accent/90 text-white shadow-[0_4px_14px_0_rgba(20,184,166,0.39)] transition-all hover:scale-105">
+                        <Button 
+                            size="lg" 
+                            className="h-12 px-8 text-base bg-accent hover:bg-accent/90 text-white shadow-[0_4px_14px_0_rgba(20,184,166,0.39)] transition-all hover:scale-105"
+                            onClick={() => window.open('https://wa.me/919555088558?text=Hi, I want to request a bulk quote', '_blank')}
+                        >
                             Request Bulk Quote
                             <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
-                        <Button size="lg" variant="outline" className="h-12 px-8 text-base border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white/50 transition-all">
+                        <Button 
+                            size="lg" 
+                            variant="outline" 
+                            className="h-12 px-8 text-base border-white/30 text-white bg-transparent hover:bg-white/10 hover:border-white/50 transition-all"
+                            onClick={() => window.location.href = '/products'}
+                        >
                             Explore Products
                         </Button>
                     </div>

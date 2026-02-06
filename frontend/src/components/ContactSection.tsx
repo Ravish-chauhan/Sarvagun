@@ -15,7 +15,7 @@ const ContactSection = () => {
         {
             icon: MessageCircle,
             title: "WhatsApp us",
-            detail: "+91 98765 43210",
+            detail: "+91 95550 88558",
         },
         {
             icon: MapPin,
@@ -61,13 +61,25 @@ const ContactSection = () => {
 
                         {/* Contact Cards */}
                         <div className="space-y-4 pt-4">
-                            {contactInfo.map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="group relative bg-white/60 backdrop-blur-md border border-white/50 rounded-2xl p-5 cursor-pointer transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-[#3cacae]/30 shadow-sm overflow-hidden"
-                                    onMouseEnter={() => setHoveredCard(index)}
-                                    onMouseLeave={() => setHoveredCard(null)}
-                                >
+                            {contactInfo.map((item, index) => {
+                                const isEmail = item.title === "Email us";
+                                const isWhatsApp = item.title === "WhatsApp us";
+                                const handleClick = () => {
+                                    if (isEmail) {
+                                        window.location.href = 'mailto:sales@sarvagunenterprises.com';
+                                    } else if (isWhatsApp) {
+                                        window.open('https://wa.me/919555088558?text=Hi, I want to enquire about your products', '_blank');
+                                    }
+                                };
+                                
+                                return (
+                                    <div
+                                        key={index}
+                                        className="group relative bg-white/60 backdrop-blur-md border border-white/50 rounded-2xl p-5 cursor-pointer transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-[#3cacae]/30 shadow-sm overflow-hidden"
+                                        onMouseEnter={() => setHoveredCard(index)}
+                                        onMouseLeave={() => setHoveredCard(null)}
+                                        onClick={handleClick}
+                                    >
                                     {/* Hover Glow */}
                                     <div className={`absolute inset-0 bg-[#3cacae]/5 blur-xl transition-opacity duration-500 ${hoveredCard === index ? 'opacity-100' : 'opacity-0'}`} />
 
@@ -86,7 +98,8 @@ const ContactSection = () => {
                                         </div>
                                     </div>
                                 </div>
-                            ))}
+                            );
+                            })}
                         </div>
                     </div>
 

@@ -101,11 +101,7 @@ const HowWeWorkSection = () => {
             className="group inline-flex items-center gap-3 bg-[#3cacae] hover:bg-[#3cacae]/90 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
-            <MessageCircle className="w-5 h-5 relative z-10" />
             <span className="relative z-10">Start Your Order Today</span>
-            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
           </a>
         </div>
       </div>

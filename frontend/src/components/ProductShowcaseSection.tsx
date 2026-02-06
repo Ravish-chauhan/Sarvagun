@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
@@ -9,12 +9,28 @@ import { categories, products } from '@/data/products';
 
 const ProductShowcaseSection = () => {
     const [activeCategory, setActiveCategory] = useState(categories[0].id);
+    const [maxProducts, setMaxProducts] = useState(9);
+
+    // Responsive product count
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 1024) {
+                setMaxProducts(8); // Mobile/Tablet: 8 items
+            } else {
+                setMaxProducts(9); // Desktop: 9 items
+            }
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     // Filter products based on active category
     const categoryProducts = products.filter(p => p.category === activeCategory);
 
-    // We want to show a preview, e.g., up to 9 items
-    const displayProducts = categoryProducts.slice(0, 9);
+    // Display products based on screen size
+    const displayProducts = categoryProducts.slice(0, maxProducts);
 
     return (
         <section className="py-16 lg:py-24 bg-white">
@@ -82,7 +98,12 @@ const ProductShowcaseSection = () => {
                             <div className="hidden lg:block mt-8 p-6 bg-[#3cacae]/10 rounded-2xl border border-[#3cacae]/20">
                                 <h4 className="font-semibold text-[#044581] mb-2">Need Custom Equipment?</h4>
                                 <p className="text-sm text-gray-600 mb-4">We supply bulk orders for specialized hospital requirements.</p>
-                                <Link href="/contact" className="text-sm font-bold text-[#3cacae] hover:underline">Contact Sales &rarr;</Link>
+                                <button 
+                                    onClick={() => window.open('https://wa.me/919555088558?text=Hi, I need custom medical equipment for bulk order', '_blank')}
+                                    className="text-sm font-bold text-[#3cacae] hover:underline cursor-pointer"
+                                >
+                                    Contact Sales &rarr;
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -126,7 +147,10 @@ const ProductShowcaseSection = () => {
                                         </p>
 
                                         <div className="mt-auto">
-                                            <Button className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs h-8 rounded-md transition-colors duration-300">
+                                            <Button 
+                                                className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs h-8 rounded-md transition-colors duration-300"
+                                                onClick={() => window.open(`https://wa.me/919555088558?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
+                                            >
                                                 Ask Price
                                             </Button>
                                         </div>
@@ -146,7 +170,7 @@ const ProductShowcaseSection = () => {
                         <div className="mt-12 flex justify-center lg:justify-start">
                             <Link href={`/products?category=${activeCategory}`}>
                                 <Button className="bg-[#044581] hover:bg-[#033461] text-white px-8 py-6 text-lg rounded-full shadow-md hover:shadow-lg transition-all">
-                                    View All {categories.find(c => c.id === activeCategory)?.name}
+                                    View All
                                     <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>
                             </Link>

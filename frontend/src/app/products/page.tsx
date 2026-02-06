@@ -18,11 +18,13 @@ const ProductsContent = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [showFilter, setShowFilter] = useState(true);
     const [isLaptop, setIsLaptop] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(0);
     const lastScrollY = useRef(0);
 
     useEffect(() => {
         const checkScreenSize = () => {
             setIsLaptop(window.innerWidth >= 1024);
+            setWindowWidth(window.innerWidth);
         };
 
         checkScreenSize();
@@ -57,6 +59,7 @@ const ProductsContent = () => {
 
     const handleCategoryChange = (categoryId: string) => {
         setActiveCategory(categoryId);
+        setCurrentPage(1); // Reset to page 1 when category changes
         if (categoryId === 'all') {
             router.push('/products', { scroll: false });
         } else {
@@ -115,11 +118,11 @@ const ProductsContent = () => {
         <div className="min-h-screen flex flex-col">
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-[#044581] to-[#3cacae] min-h-[80vh] flex items-center" style={{
-                paddingTop: isLaptop ? '100px' : '128px',
-                paddingBottom: window.innerWidth === 1024 ? '20px' : (isLaptop ? '40px' : '60px')
+            <section className="relative overflow-hidden bg-gradient-to-br from-[#044581] to-[#3cacae] min-h-[65vh] md:min-h-[80vh] flex items-center" style={{
+                paddingTop: isLaptop ? '100px' : (windowWidth >= 768 ? '120px' : '120px'),
+                paddingBottom: windowWidth === 1024 ? '20px' : (isLaptop ? '40px' : (windowWidth >= 768 ? '60px' : '40px'))
             }}>
-                <div className="container mx-auto px-4 md:px-6 lg:px-20 relative z-20">
+                <div className="container mx-auto px-2 min-[400px]:px-4 md:px-6 lg:px-20 relative z-20">
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                         {/* Left side - Content */}
                         <div className="text-center lg:text-left">
@@ -131,7 +134,7 @@ const ProductsContent = () => {
                             </p>
 
                             {/* Search Bar */}
-                            <div className="w-80 lg:w-full max-w-lg mx-auto lg:mx-0">
+                            <div className="w-72 min-[375px]:w-80 lg:w-full max-w-lg mx-auto lg:mx-0">
                                 <div className="bg-white/20 backdrop-blur-md rounded-full p-2 md:p-2 shadow-2xl border border-white/30">
                                     <div className="flex items-center">
                                         <div className="flex-shrink-0 pl-3 md:pl-3">
@@ -156,8 +159,8 @@ const ProductsContent = () => {
                         <div
                             className="hidden lg:flex items-center justify-center relative"
                             style={{
-                                justifyContent: window.innerWidth >= 1440 ? 'flex-end' : undefined,
-                                marginRight: window.innerWidth >= 1440 ? '0' : undefined
+                                justifyContent: windowWidth >= 1440 ? 'flex-end' : undefined,
+                                marginRight: windowWidth >= 1440 ? '0' : undefined
                             }}
                         >
                             {/* Image Container */}
@@ -190,8 +193,8 @@ const ProductsContent = () => {
                             <div
                                 className="flex flex-col gap-4 ml-6 lg:ml-4 xl:ml-6"
                                 style={{
-                                    marginLeft: window.innerWidth >= 1440 ? '60px' : undefined,
-                                    marginRight: window.innerWidth >= 1440 ? '0' : undefined
+                                    marginLeft: windowWidth >= 1440 ? '60px' : undefined,
+                                    marginRight: windowWidth >= 1440 ? '0' : undefined
                                 }}
                             >
                                 {carouselImages.map((_, index) => (
@@ -203,19 +206,6 @@ const ProductsContent = () => {
                                                 : 'bg-white/20 h-2 hover:bg-white/40 hover:h-4'
                                             }`}
                                         aria-label={`View image ${index + 1}`}
-                                    />
-                                ))}
-                            </div>
-
-                            {/* Progress Indicators - Below images */}
-                            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
-                                {carouselImages.map((_, index) => (
-                                    <div
-                                        key={index}
-                                        className={`h-1 rounded-full transition-all duration-300 ${index === currentImageIndex
-                                                ? 'w-8 bg-white'
-                                                : 'w-3 bg-white/40'
-                                            }`}
                                     />
                                 ))}
                             </div>
@@ -287,8 +277,11 @@ const ProductsContent = () => {
                                                 {product.description}
                                             </p>
 
-                                            <Button className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs md:text-sm h-8 md:h-10 rounded-lg transition-colors duration-300 mt-auto">
-                                                Enquire Now
+                                            <Button 
+                                                className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs md:text-sm h-8 md:h-10 rounded-lg transition-colors duration-300 mt-auto"
+                                                onClick={() => window.open(`https://wa.me/919555088558?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
+                                            >
+                                                Ask Price
                                             </Button>
                                         </div>
                                     </div>
@@ -326,20 +319,27 @@ const ProductsContent = () => {
                                 <Search className="h-16 w-16 mx-auto" />
                             </div>
                             <h3 className="text-xl font-semibold text-gray-900 mb-2">No products found</h3>
-                            <p className="text-gray-500 max-w-md mx-auto">
-                                We couldn't find any products matching your search or category selection. Try adjusting your filters.
+                            <p className="text-gray-500 max-w-md mx-auto mb-6">
+                                We couldn't find any products matching your search. Try adjusting your filters or contact us directly.
                             </p>
-                            <Button
-                                variant="outline"
-                                className="mt-6"
-                                onClick={() => {
-                                    setActiveCategory('all');
-                                    setSearchQuery('');
-                                    router.push('/products');
-                                }}
-                            >
-                                Reset Filters
-                            </Button>
+                            <div className="flex flex-col sm:flex-row gap-3">
+                                <Button
+                                    variant="outline"
+                                    onClick={() => {
+                                        setActiveCategory('all');
+                                        setSearchQuery('');
+                                        router.push('/products');
+                                    }}
+                                >
+                                    Reset Filters
+                                </Button>
+                                <Button
+                                    className="bg-[#25D366] hover:bg-[#20BA5A] text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
+                                    onClick={() => window.open('https://wa.me/919555088558?text=Hi, I am looking for a specific product', '_blank')}
+                                >
+                                    Ask on WhatsApp
+                                </Button>
+                            </div>
                         </div>
                     )
                 }

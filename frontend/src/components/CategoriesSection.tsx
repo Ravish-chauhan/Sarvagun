@@ -6,18 +6,20 @@ import { ArrowRight } from "lucide-react";
 import { categories } from "@/data/products";
 
 // Import local assets
-import imgSurgery from "@/assets/surgical-cat.svg";
+import imgSurgery from "@/assets/surgical-sup.jpg";
 import imgOrthopedic from "@/assets/category-orthopedic.png";
 import imgGynecology from "@/assets/category-gynecology.png";
 import imgDiagnostic from "@/assets/category-diagnostic.png";
 import imgDisposables from "@/assets/category-disposables.png";
-import imgMedicalConsumable from "@/assets/medical-consumable.svg";
-import imgHospitalInfra from "@/assets/hospital-infra.svg";
+import imgMedicalConsumable from "@/assets/medical-con.png";
+import imgHospitalInfra from "@/assets/hospital-infrast.jpeg";
+import imgMedicalInjectable from "@/assets/injectable.jpg";
 
 // Map slugs to local matched assets
 const categoryImages: Record<string, StaticImageData> = {
     "medical-consumables": imgMedicalConsumable,
     "surgical-supplies": imgSurgery,
+    "medical-injectable": imgMedicalInjectable,
     "hospital-infrastructure": imgHospitalInfra,
     "icu-diagnostic-critical": imgDiagnostic,
     "orthopedic-supplies": imgOrthopedic,
@@ -47,7 +49,7 @@ const CategoriesSection = () => {
             </div>
 
             {/* Container aligned with HeroSection margins */}
-            <div className="relative z-10 w-full px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
+            <div className="relative z-10 w-full px-4 min-[375px]:px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 animate-fade-up">
                     <span className="text-[#3cacae] font-bold text-sm uppercase tracking-wider">
@@ -62,24 +64,25 @@ const CategoriesSection = () => {
                 </div>
 
                 {/* Bento Grid */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 auto-rows-[160px] sm:auto-rows-[220px]">
-                    {categories.slice(0, 4).map((category, index) => {
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 min-[375px]:gap-3 sm:gap-6 auto-rows-[160px] sm:auto-rows-[220px]">
+                    {categories.slice(0, 5).map((category, index) => {
                         // Layout Logic:
                         // Mobile (2 cols):
                         // Row 1: Item 0 (2 cols) -> Full width
                         // Row 2: Item 1 (1 col) | Item 2 (1 col) -> Side by side
-                        // Row 3: Item 3 (2 cols) -> Full width
+                        // Row 3: Item 3 (1 col) | Item 4 (1 col) -> Side by side
 
                         // Desktop (4 cols):
-                        // [ Item 0 (2x2) ] [ Item 1 (1x2) ] [ Item 2 (1x1) ]
-                        // [   ...        ] [    ...       ] [ Item 3 (1x1) ]
+                        // [ Item 0 (2x2) ] [ Item 1 (1x1) ] [ Item 2 (1x1) ]
+                        // [   ...        ] [ Item 3 (1x1) ] [ Item 4 (1x1) ]
 
                         const layoutClass = (() => {
                             switch (index) {
                                 case 0: return "col-span-2 row-span-2 lg:col-span-2 lg:row-span-2"; // Big item
-                                case 1: return "col-span-1 row-span-1 lg:col-span-1 lg:row-span-2"; // Tall/Small
+                                case 1: return "col-span-1 row-span-1 lg:col-span-1 lg:row-span-1"; // Small
                                 case 2: return "col-span-1 row-span-1 lg:col-span-1 lg:row-span-1"; // Small
-                                case 3: return "col-span-2 row-span-1 lg:col-span-1 lg:row-span-1"; // Wide/Small
+                                case 3: return "col-span-1 row-span-1 lg:col-span-1 lg:row-span-1"; // Small
+                                case 4: return "col-span-1 row-span-1 lg:col-span-1 lg:row-span-1"; // Small
                                 default: return "col-span-1";
                             }
                         })();
@@ -96,7 +99,10 @@ const CategoriesSection = () => {
                                         src={categoryImages[category.id]}
                                         alt={category.name}
                                         fill
-                                        className={`object-cover ${category.id === 'orthopedic-supplies' ? 'object-bottom' : 'object-top'} transition-transform duration-700 group-hover:scale-105`}
+                                        className={`${category.id === 'surgical-supplies' ? 'object-cover object-center' :
+                                            category.id === 'orthopedic-supplies' ? 'object-cover object-bottom' :
+                                                'object-cover object-top'
+                                            } transition-transform duration-700 group-hover:scale-105`}
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 
                                     />
@@ -106,7 +112,7 @@ const CategoriesSection = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-300" />
 
                                 {/* Content */}
-                                <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-end">
+                                    <div className="absolute inset-0 p-4 sm:p-5 flex flex-col justify-end">
                                     {/* Floating Badge */}
                                     <div className="absolute top-3 right-3">
                                         <span className="bg-[#3cacae] text-white border border-[#3cacae] text-[10px] uppercase font-bold px-2 py-0.5 rounded-full">
