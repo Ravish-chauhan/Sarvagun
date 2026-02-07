@@ -119,6 +119,7 @@ const ProductsContent = () => {
 
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-gradient-to-br from-[#044581] to-[#3cacae] min-h-[65vh] md:min-h-[80vh] flex items-center" style={{
+                background: 'var(--gradient-hero)',
                 paddingTop: isLaptop ? '100px' : (windowWidth >= 768 ? '120px' : '120px'),
                 paddingBottom: windowWidth === 1024 ? '20px' : (isLaptop ? '40px' : (windowWidth >= 768 ? '60px' : '40px'))
             }}>

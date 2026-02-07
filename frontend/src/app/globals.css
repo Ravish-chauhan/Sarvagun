@@ -20,6 +20,13 @@
   --accent: #14b8a6;
   /* Teal */
   --accent-foreground: #ffffff;
+  
+  /* Brand Colors */
+  --brand-blue: #044581;
+  --brand-teal: #3cacae;
+  
+  /* Gradients */
+  --gradient-hero: linear-gradient(to bottom right, #044581, #3cacae);
 }
 
 body {

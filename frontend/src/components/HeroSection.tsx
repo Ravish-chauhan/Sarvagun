@@ -27,7 +27,7 @@ const HeroSection = () => {
         setIsMounted(true);
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % equipmentItems.length);
-        }, 3000);
+        }, 2500);
         return () => clearInterval(interval);
     }, []);
 
