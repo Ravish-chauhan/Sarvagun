@@ -175,7 +175,7 @@ const FeaturedProductsSection = () => {
                         <Button 
                           size="sm" 
                           className="w-full bg-[#3cacae] hover:bg-[#3cacae]/90 text-xs h-8"
-                          onClick={() => window.open(`https://wa.me/919555088558?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
+                          onClick={() => window.open(`https://wa.me/919554657717?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
                         >
                           <MessageCircle className="w-3 h-3 mr-1" />
                           Ask Price

@@ -15,8 +15,8 @@ const Header = () => {
         { name: "Home", path: "/" },
         { name: "Product", path: "/products" },
         { name: "Catalog", path: "/catalog" },
-        { name: "About Us", path: "/about" },
-        { name: "Contact", path: "/contact" },
+        { name: "About Us", path: "/#about" },
+        { name: "Contact", path: "/#contact" },
     ];
 
     const isActive = (path: string) => {
@@ -81,7 +81,7 @@ const Header = () => {
                     {/* CTA Buttons */}
                     <div className="hidden min-[950px]:flex items-center gap-4">
                         <Link
-                            href="/contact"
+                            href="/#contact"
                             className="inline-flex items-center gap-2 px-6 py-2.5 bg-[#044581] text-white font-bold rounded-lg hover:bg-[#033461] hover:shadow-lg hover:scale-105 transition-all duration-300 text-sm shadow-md"
                         >
                             Get a Quote
@@ -115,7 +115,7 @@ const Header = () => {
                                 </Link>
                             ))}
                             <Link
-                                href="/contact"
+                                href="/#contact"
                                 onClick={() => setIsOpen(false)}
                                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[#044581] text-white font-bold rounded-lg hover:bg-[#033461] hover:shadow-md transition-all text-sm text-center mt-2"
                             >

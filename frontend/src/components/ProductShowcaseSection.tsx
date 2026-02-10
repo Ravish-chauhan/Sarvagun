@@ -99,7 +99,7 @@ const ProductShowcaseSection = () => {
                                 <h4 className="font-semibold text-[#044581] mb-2">Need Custom Equipment?</h4>
                                 <p className="text-sm text-gray-600 mb-4">We supply bulk orders for specialized hospital requirements.</p>
                                 <button 
-                                    onClick={() => window.open('https://wa.me/919555088558?text=Hi, I need custom medical equipment for bulk order', '_blank')}
+                                    onClick={() => window.open('https://wa.me/919554657717?text=Hi, I need custom medical equipment for bulk order', '_blank')}
                                     className="text-sm font-bold text-[#3cacae] hover:underline cursor-pointer"
                                 >
                                     Contact Sales &rarr;
@@ -149,7 +149,7 @@ const ProductShowcaseSection = () => {
                                         <div className="mt-auto">
                                             <Button 
                                                 className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs h-8 rounded-md transition-colors duration-300"
-                                                onClick={() => window.open(`https://wa.me/919555088558?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
+                                                onClick={() => window.open(`https://wa.me/919554657717?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
                                             >
                                                 Ask Price
                                             </Button>

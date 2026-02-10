@@ -28,7 +28,7 @@ const ParallaxSection = () => {
         </p>
 
         <a
-          href="https://wa.me/919555088558?text=Hello!%20I%20need%20a%20specific%20medical%20product.%20Please%20help%20me%20find%20it."
+          href="https://wa.me/919554657717?text=Hello!%20I%20need%20a%20specific%20medical%20product.%20Please%20help%20me%20find%20it."
           target="_blank"
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-2 md:gap-3 bg-[#3cacae] hover:bg-[#3cacae]/90 text-white font-semibold px-4 py-2 md:px-8 md:py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg text-sm md:text-lg"

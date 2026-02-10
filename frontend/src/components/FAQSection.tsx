@@ -65,7 +65,7 @@ const FAQSection = () => {
                                 <p className="text-white/80 mb-6 text-sm">Our expert support team is just a message away.</p>
                                 <Button 
                                     className="bg-white text-[#044581] hover:bg-[#3cacae] hover:text-white border-0 rounded-full px-6 font-semibold transition-all duration-300"
-                                    onClick={() => window.open('https://wa.me/919555088558?text=Hi, I have a question', '_blank')}
+                                    onClick={() => window.open('https://wa.me/919554657717?text=Hi, I have a question', '_blank')}
                                 >
                                     <MessageCircle className="w-4 h-4 mr-2" />
                                     Chat with Us

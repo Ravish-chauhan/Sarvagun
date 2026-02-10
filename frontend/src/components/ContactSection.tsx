@@ -68,7 +68,7 @@ const ContactSection = () => {
                                     if (isEmail) {
                                         window.location.href = 'mailto:sales@sarvagunenterprises.com';
                                     } else if (isWhatsApp) {
-                                        window.open('https://wa.me/919555088558?text=Hi, I want to enquire about your products', '_blank');
+                                        window.open('https://wa.me/919554657717?text=Hi, I want to enquire about your products', '_blank');
                                     }
                                 };
                                 

@@ -280,7 +280,7 @@ const ProductsContent = () => {
 
                                             <Button 
                                                 className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs md:text-sm h-8 md:h-10 rounded-lg transition-colors duration-300 mt-auto"
-                                                onClick={() => window.open(`https://wa.me/919555088558?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
+                                                onClick={() => window.open(`https://wa.me/919554657717?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
                                             >
                                                 Ask Price
                                             </Button>
@@ -336,7 +336,7 @@ const ProductsContent = () => {
                                 </Button>
                                 <Button
                                     className="bg-[#25D366] hover:bg-[#20BA5A] text-white hover:scale-105 hover:shadow-lg transition-all duration-300"
-                                    onClick={() => window.open('https://wa.me/919555088558?text=Hi, I am looking for a specific product', '_blank')}
+                                    onClick={() => window.open('https://wa.me/919554657717?text=Hi, I am looking for a specific product', '_blank')}
                                 >
                                     Ask on WhatsApp
                                 </Button>

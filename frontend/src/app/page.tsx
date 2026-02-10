@@ -11,12 +11,14 @@ import FeaturedProductsSection from "@/components/FeaturedProductsSection";
 import StatsSection from "@/components/StatsSection";
 import HowWeWorkSection from "@/components/HowWeWorkSection";
 import ParallaxSection from "@/components/ParallaxSection";
+import BrandMarqueeSection from "@/components/BrandMarqueeSection";
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
       <AboutUsSection />
+      <BrandMarqueeSection />
       <CategoriesSection />
       <FeaturedProductsSection />
       <StatsSection />

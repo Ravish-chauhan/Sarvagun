@@ -79,14 +79,14 @@ const HeroSection = () => {
                     </h1>
 
                     <p className="text-lg lg:text-xl text-gray-200 mb-8 max-w-2xl xl:max-w-4xl mx-auto lg:mx-0 font-medium leading-relaxed">
-                        Your trusted partner for bulk medical supplies. From disposables to advanced surgical instruments — we deliver quality healthcare solutions worldwide.
+                        Your trusted partner for bulk medical supplies. Serving hospitals, clinics, and healthcare facilities with quality-assured products and reliable sourcing.
                     </p>
 
                     <div className="flex flex-wrap gap-4 mb-10 justify-center lg:justify-start">
                         <Button 
                             size="lg" 
                             className="h-12 px-8 text-base bg-accent hover:bg-accent/90 text-white shadow-[0_4px_14px_0_rgba(20,184,166,0.39)] transition-all hover:scale-105"
-                            onClick={() => window.open('https://wa.me/919555088558?text=Hi, I want to request a bulk quote', '_blank')}
+                            onClick={() => window.open('https://wa.me/919554657717?text=Hi, I want to request a bulk quote', '_blank')}
                         >
                             Request Bulk Quote
                             <ArrowRight className="ml-2 w-5 h-5" />
