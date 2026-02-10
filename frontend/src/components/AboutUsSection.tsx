@@ -35,13 +35,13 @@ const AboutUsSection = () => {
       className="py-24 md:py-24 pb-12 md:pb-40 bg-white overflow-hidden"
       style={{
         paddingTop: windowWidth === 1024 ? '3rem' : undefined,
-        paddingBottom: windowWidth === 1024 ? '4rem' : windowWidth === 768 ? '4rem' : windowWidth >= 1440 ? '4rem' : undefined
+        paddingBottom: windowWidth === 1024 ? '4rem' : windowWidth === 768 ? '4rem' : windowWidth >= 1440 ? '6rem' : undefined
       }}
     >
       <div className="w-full px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side - Images */}
-          <div className="relative -mt-16 lg:-mt-28">
+          <div className="relative -mt-16 lg:-mt-28 min-h-0">
 
             {/* Main Image Container */}
             <div className="relative md:ml-32 lg:ml-0">
