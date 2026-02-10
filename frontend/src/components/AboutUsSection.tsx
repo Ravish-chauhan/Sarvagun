@@ -35,7 +35,7 @@ const AboutUsSection = () => {
       className="py-24 md:py-24 pb-12 md:pb-40 bg-white overflow-hidden"
       style={{
         paddingTop: windowWidth === 1024 ? '3rem' : undefined,
-        paddingBottom: windowWidth === 1024 ? '4rem' : windowWidth === 768 ? '4rem' : windowWidth === 1440 ? '4rem' : undefined
+        paddingBottom: windowWidth === 1024 ? '4rem' : windowWidth === 768 ? '4rem' : windowWidth >= 1440 ? '4rem' : undefined
       }}
     >
       <div className="w-full px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
