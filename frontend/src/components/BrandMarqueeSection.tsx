@@ -59,12 +59,12 @@ const BrandMarqueeSection = () => {
                 }
                 
                 .animate-marquee {
-                    animation: marquee 40s linear infinite;
+                    animation: marquee 45s linear infinite;
                 }
                 
-                @media (min-width: 1024px) {
+                @media (min-width: 768px) {
                     .animate-marquee {
-                        animation: marquee 40s linear infinite;
+                        animation: marquee 52s linear infinite;
                     }
                 }
             `}</style>
