@@ -37,7 +37,7 @@ const AboutUsSection = () => {
       <div className="w-full px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Side - Images */}
-          <div className="relative -mt-16 lg:-mt-28 min-h-0">
+          <div className="relative mt-0 lg:-mt-28 min-h-0">
 
             {/* Main Image Container */}
             <div className="relative md:ml-32 lg:ml-0">
