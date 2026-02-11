@@ -88,7 +88,7 @@ const AboutUsSection = () => {
                     <circle cx="50" cy="50" r="37" fill="none" stroke="#3cacae" strokeWidth="16" strokeLinecap="round" />
                     <text className="text-[10px] md:text-[9px] uppercase tracking-[0.2em] fill-white font-bold">
                       <textPath href="#circlePath">
-                        • 100+ PRODUCTS • TRUSTED SUPPLIER •
+                        • 500+ PRODUCTS • TRUSTED SUPPLIER •
                       </textPath>
                     </text>
                   </svg>

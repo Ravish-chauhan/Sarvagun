@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   creator: "Sarvagun Enterprises",
   metadataBase: new URL('https://sarvagunenterprises.com'),
   icons: {
-    icon: "/logonew-tight.svg",
-    apple: "/logonew-tight.svg",
+    icon: "/logo-use.svg",
+    apple: "/logo-use.svg",
   },
   openGraph: {
     title: "Sarvagun Enterprises | Revolutionizing Healthcare Infrastructure",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "Sarvagun Enterprises",
     images: [
       {
-        url: "/logonew-tight.svg",
+        url: "/logo-use.svg",
         width: 800,
         height: 600,
         alt: "Sarvagun Enterprises Logo",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sarvagun Enterprises",
     description: "Premium medical equipment and hospital supplies.",
-    images: ["/logonew-tight.svg"],
+    images: ["/logo-use.svg"],
   },
 };
 

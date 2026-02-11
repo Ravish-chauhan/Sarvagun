@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Package, Shield, Headphones, Globe } from "lucide-react";
+import { Package, Shield, Headphones, LayoutGrid } from "lucide-react";
 
 const StatsSection = () => {
   const [counts, setCounts] = useState([0, 0, 0, 0]);
@@ -11,7 +11,7 @@ const StatsSection = () => {
   const stats = [
     {
       icon: Package,
-      target: 100,
+      target: 500,
       suffix: "+",
       label: "Products"
     },
@@ -28,10 +28,10 @@ const StatsSection = () => {
       label: "Support"
     },
     {
-      icon: Globe,
-      target: 50,
+      icon: LayoutGrid,
+      target: 12,
       suffix: "+",
-      label: "Countries"
+      label: "Categories"
     }
   ];
 
@@ -40,7 +40,7 @@ const StatsSection = () => {
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          
+
           stats.forEach((stat, index) => {
             let current = 0;
             const increment = stat.target / 60;

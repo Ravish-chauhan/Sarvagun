@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from 'react';
-import { 
-  Globe, 
-  Star, 
-  Mail, 
+import React, { useState, useEffect } from 'react';
+import {
+  Globe,
+  Star,
+  Mail,
   Phone,
   Download,
   ArrowRight,
@@ -17,7 +17,19 @@ import Image from 'next/image';
 
 const DigitalCard = () => {
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
-  
+
+  // Hide navbar and footer on this page
+  useEffect(() => {
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    if (header) (header as HTMLElement).style.display = 'none';
+    if (footer) (footer as HTMLElement).style.display = 'none';
+    return () => {
+      if (header) (header as HTMLElement).style.display = '';
+      if (footer) (footer as HTMLElement).style.display = '';
+    };
+  }, []);
+
   const handleWebsiteClick = () => {
     window.open('/', '_blank');
   };
@@ -44,35 +56,35 @@ const DigitalCard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 relative overflow-hidden">
+    <div className="min-h-screen pb-16 bg-gradient-to-br from-blue-50 via-white to-cyan-50 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#044581]/10 to-[#3cacae]/10 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-[#3cacae]/10 to-[#044581]/10 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="relative z-10">
-        <div className="px-6 py-8 text-center">
+        <div className="px-6 pt-8 pb-8 text-center">
           <div className="max-w-md mx-auto">
             <div className="mb-6 relative">
               <div className="w-32 h-32 mx-auto flex items-center justify-center relative group">
-                <Image 
-                  src="/logonew-tight.svg" 
-                  alt="Sarvagun Logo" 
+                <Image
+                  src="/logo-use.svg"
+                  alt="Sarvagun Logo"
                   width={112}
                   height={112}
                   className="relative z-10 transition-transform duration-300 group-hover:scale-110 drop-shadow-lg"
                 />
               </div>
             </div>
-            
+
             <h1 className="text-4xl font-black text-[#044581] mb-3">
               Sarvagun Enterprises
             </h1>
-            
+
             <p className="text-lg text-gray-700 leading-relaxed font-medium">
               Your trusted partner for bulk medical supplies
             </p>
-            
+
             <div className="flex items-center justify-center gap-2 mt-3 text-sm text-gray-500">
               <Heart className="w-4 h-4 text-[#3cacae]" />
               <span>Trusted by 500+ Hospitals Nationwide</span>
@@ -168,7 +180,7 @@ const DigitalCard = () => {
                 We supply quality medical equipment, consumables, and surgical supplies to hospitals, clinics, and healthcare facilities.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-3 gap-4 text-center">
               <div className="space-y-2">
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto">
@@ -179,17 +191,17 @@ const DigitalCard = () => {
                   <p className="text-xs text-gray-500">Hospitals</p>
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mx-auto">
                   <Package className="w-6 h-6 text-[#3cacae]" />
                 </div>
                 <div>
-                  <p className="font-bold text-gray-900">273+</p>
+                  <p className="font-bold text-gray-900">500+</p>
                   <p className="text-xs text-gray-500">Products</p>
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mx-auto">
                   <Star className="w-6 h-6 text-yellow-600" />
@@ -208,7 +220,7 @@ const DigitalCard = () => {
             <h3 className="text-lg font-bold text-gray-900 text-center mb-4">
               Get In Touch
             </h3>
-            
+
             <button
               onClick={handleEmailClick}
               onMouseEnter={() => setHoveredButton('email')}

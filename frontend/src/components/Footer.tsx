@@ -20,16 +20,17 @@ const Footer = () => {
 
     const footerLinks = {
         company: [
-            { label: "About Us", href: "#about" },
-            { label: "Careers", href: "#careers" },
-            { label: "Our Team", href: "#team" },
-            { label: "Contact", href: "#contact" },
+            { label: "About Us", href: "/#about" },
+            { label: "Products", href: "/products" },
+            { label: "Digital Card", href: "/card" },
+            { label: "Contact", href: "/#contact" },
         ],
         products: [
-            { label: "Surgical Equipment", href: "/category/surgical-supplies" },
-            { label: "Medical Consumables", href: "/category/medical-consumables" },
-            { label: "Hospital Furniture", href: "/category/hospital-infrastructure" },
-            { label: "Diagnostic Tools", href: "/category/icu-diagnostic-critical" },
+            { label: "Medical Consumables", href: "/products?category=medical-consumables" },
+            { label: "Surgical Supplies", href: "/products?category=surgical-supplies" },
+            { label: "Medical Injectable", href: "/products?category=medical-injectable" },
+            { label: "Hospital Infrastructure", href: "/products?category=hospital-infrastructure" },
+            { label: "Orthopedic Supplies", href: "/products?category=orthopedic-supplies" },
         ],
         support: [
             { label: "Help Center", href: "#faq" },
@@ -56,7 +57,7 @@ const Footer = () => {
                         </p>
                     </div>
                     <div>
-                        <Button 
+                        <Button
                             onClick={scrollToContact}
                             className="bg-white text-[#044581] hover:bg-[#3cacae] hover:text-white rounded-full px-8 py-7 text-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl group"
                         >
@@ -142,7 +143,7 @@ const Footer = () => {
                 <div className="border-t border-white/10 pt-8">
                     {/* Go to Top - Mobile: Top, Desktop: Center */}
                     <div className="flex justify-center mb-4 md:mb-6">
-                        <button 
+                        <button
                             onClick={scrollToTop}
                             className="flex items-center gap-2 text-white hover:text-[#3cacae] transition-colors group"
                         >
@@ -150,7 +151,7 @@ const Footer = () => {
                             Go to Top
                         </button>
                     </div>
-                    
+
                     {/* Copyright and Links */}
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
                         <p>&copy; {currentYear} Sarvagun Enterprises. All rights reserved.</p>
