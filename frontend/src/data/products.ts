@@ -31,7 +31,7 @@ export const categories: Category[] = [
         slug: "medical-consumables",
         image: "/assets/Medical%20Consumable/face%20masks.jpg",
         description: "Essential daily supplies including gloves, masks, and syringes for consistent patient care.",
-        productCount: 120
+        productCount: 39
     },
     {
         id: "surgical-supplies",
@@ -47,7 +47,7 @@ export const categories: Category[] = [
         slug: "medical-injectable",
         image: "/assets/injectable.jpg",
         description: "Sterile injectables and pharmaceutical supplies for safe medication administration.",
-        productCount: 25
+        productCount: 50
     },
     {
         id: "hospital-infrastructure",
@@ -63,7 +63,79 @@ export const categories: Category[] = [
         slug: "orthopedic-supplies",
         image: "/assets/category-orthopedic.png",
         description: "Specialized implants, surgical instruments, and equipment for orthopedic care.",
-        productCount: 103
+        productCount: 101
+    },
+    {
+        id: "critical-care-supply",
+        name: "Critical Care Supply",
+        slug: "critical-care-supply",
+        image: "/assets/Hospital%20Infrastructure/defibrillator.jpg",
+        description: "Essential life-saving equipment, ventilators, monitors, and emergency medications for ICU and critical care units.",
+        productCount: 33
+    },
+    {
+        id: "physio-item",
+        name: "All Type Physio Item",
+        slug: "physio-item",
+        image: "/assets/Hospital%20Infrastructure/ultrasound-machine.jpg",
+        description: "Comprehensive physiotherapy equipment including traction systems, mobility aids, and therapeutic devices.",
+        productCount: 9
+    },
+    {
+        id: "obs-gynecologist-item",
+        name: "Obs Gynecologist Item",
+        slug: "obs-gynecologist-item",
+        image: "/assets/surgical%20items/Gynecology%20instruments.webp",
+        description: "Specialized instruments, surgical supplies, and consumables for obstetrics and gynecology procedures.",
+        productCount: 16
+    },
+    {
+        id: "opthal-item",
+        name: "Opthal Item",
+        slug: "opthal-item",
+        image: "/assets/surgical%20items/Surgical%20microscope.jpg",
+        description: "Precision ophthalmic instruments and supplies for eye surgery and examination procedures.",
+        productCount: 7
+    },
+    {
+        id: "cardiology-item",
+        name: "Cardiology Item",
+        slug: "cardiology-item",
+        image: "/assets/Hospital%20Infrastructure/ecg%20machine%202.webp",
+        description: "Cardiac monitoring equipment, diagnostic devices, and essential cardiovascular medications.",
+        productCount: 17
+    },
+    {
+        id: "neuro-item",
+        name: "Neuro Item",
+        slug: "neuro-item",
+        image: "/assets/surgical%20items/Neurosurgery%20instruments.jpg",
+        description: "Specialized neurosurgical instruments, anesthetics, and precision tools for neurological procedures.",
+        productCount: 13
+    },
+    {
+        id: "pediatric",
+        name: "Pediatric",
+        slug: "pediatric",
+        image: "/assets/Hospital%20Infrastructure/nebulizer.webp",
+        description: "Essential pediatric and neonatal care supplies including feeding tubes, respiratory aids, and monitoring devices.",
+        productCount: 10
+    },
+    {
+        id: "urology",
+        name: "Urology",
+        slug: "urology",
+        image: "/assets/surgical%20items/Urology%20instruments.webp",
+        description: "Specialized urological instruments, catheters, and consumables for urological procedures and patient care.",
+        productCount: 9
+    },
+    {
+        id: "gastroenterology",
+        name: "Gastroenterology",
+        slug: "gastroenterology",
+        image: "/assets/surgical%20items/Endoscopy%20system.jpg",
+        description: "Endoscopic systems, GI medications, and consumables for gastrointestinal diagnosis and treatment.",
+        productCount: 13
     },
 ];
 
@@ -591,4 +663,149 @@ export const products: Product[] = [
     { id: "os-099", category: "orthopedic-supplies", name: "Osteotomes", image: "/assets/orthopedic/osteotomes.jpg", description: "Standard osteotomes for osteotomy procedures." },
     { id: "os-100", category: "orthopedic-supplies", name: "Reduction Forceps", image: "/assets/orthopedic/reduction%20foreceps.jpg", description: "Forceps for holding fracture fragments." },
     { id: "os-101", category: "orthopedic-supplies", name: "Rongeurs", image: "/assets/orthopedic/rongeurs.webp", description: "Strong rongeurs for gouging out bone." },
+
+    // Critical Care Supply
+    { id: "cc-001", category: "critical-care-supply", name: "ICU Ventilator", image: "/assets/Hospital%20Infrastructure/ventilator.jpg", description: "Advanced ICU ventilator for life-critical respiratory support." },
+    { id: "cc-002", category: "critical-care-supply", name: "Patient Monitor", image: "/assets/Hospital%20Infrastructure/patient%20monitor.avif", description: "Multi-parameter patient monitor for continuous vital signs tracking in ICU." },
+    { id: "cc-003", category: "critical-care-supply", name: "Defibrillator", image: "/assets/Hospital%20Infrastructure/defibrillator.jpg", description: "Life-saving defibrillator for cardiac arrest and arrhythmia emergencies." },
+    { id: "cc-004", category: "critical-care-supply", name: "Syringe Pump", image: "/assets/Hospital%20Infrastructure/Syringe-pump2.jpg", description: "Precision syringe pump for controlled critical care medication delivery." },
+    { id: "cc-005", category: "critical-care-supply", name: "Infusion Pump", image: "/assets/Hospital%20Infrastructure/infusion%20pump.webp", description: "Volumetric infusion pump for accurate IV fluid administration in ICU." },
+    { id: "cc-006", category: "critical-care-supply", name: "Oxygen Concentrator", image: "/assets/Hospital%20Infrastructure/Oxygen-concentrator.jpg", description: "High-efficiency oxygen concentrator for continuous critical care oxygen therapy." },
+    { id: "cc-007", category: "critical-care-supply", name: "Oxygen Cylinder", image: "/assets/Hospital%20Infrastructure/oxygen%20cylinder.webp", description: "Medical grade oxygen cylinder for emergency and critical care use." },
+    { id: "cc-008", category: "critical-care-supply", name: "Suction Machine", image: "/assets/Hospital%20Infrastructure/suction%20machine.png", description: "Heavy-duty suction machine for airway clearance in critical care." },
+    { id: "cc-009", category: "critical-care-supply", name: "Ambu Bag", image: "/assets/Hospital%20Infrastructure/ambu%20bag.jpg", description: "Manual resuscitator bag for emergency ventilation in critical situations." },
+    { id: "cc-010", category: "critical-care-supply", name: "Pulse Oximeter", image: "/assets/Hospital%20Infrastructure/pulse%20oximeter%202.jpg", description: "Accurate pulse oximeter for continuous SpO2 monitoring in ICU." },
+    { id: "cc-011", category: "critical-care-supply", name: "Emergency Crash Cart", image: "/assets/Hospital%20Infrastructure/cash%20cart.jpg", description: "Fully equipped emergency crash cart for rapid critical care response." },
+    { id: "cc-012", category: "critical-care-supply", name: "Laryngeal Mask Airway", image: "/assets/surgical%20items/Laryngeal%20mask%20airways.jpg", description: "Laryngeal mask airway for emergency airway management in critical care." },
+    { id: "cc-013", category: "critical-care-supply", name: "Breathing Circuits", image: "/assets/surgical%20items/Breathing%20circuits.jpg", description: "Disposable breathing circuits for ventilators and anesthesia in ICU." },
+    { id: "cc-014", category: "critical-care-supply", name: "Nasal Cannula", image: "/assets/Medical%20Consumable/nasal%20cannula.jpg", description: "Soft nasal cannula for supplemental oxygen delivery in critical care." },
+    { id: "cc-015", category: "critical-care-supply", name: "Oxygen Mask", image: "/assets/Medical%20Consumable/oxygen-mask-.jpeg", description: "Standard face mask for high-flow oxygen therapy in critical care." },
+    { id: "cc-016", category: "critical-care-supply", name: "Ringer Lactate Solution", image: "/assets/medical%20injectible/Ringer%20Lactate.jpg", description: "Balanced crystalloid solution for fluid resuscitation in critical care." },
+    { id: "cc-017", category: "critical-care-supply", name: "Normal Saline 0.9%", image: "/assets/medical%20injectible/Normal%20Saline.jpg", description: "Isotonic saline solution for IV hydration and drug dilution in ICU." },
+    { id: "cc-018", category: "critical-care-supply", name: "Dextrose 5% Solution", image: "/assets/medical%20injectible/Dextrose%205%25.jpg", description: "Intravenous dextrose solution for caloric supplementation in critical care." },
+    { id: "cc-019", category: "critical-care-supply", name: "Dextrose Normal Saline", image: "/assets/medical%20injectible/Dextrose%20Normal%20Saline.webp", description: "Combined dextrose and saline solution for critical care fluid management." },
+    { id: "cc-020", category: "critical-care-supply", name: "Dopamine Injection", image: "/assets/medical%20injectible/Dopamine%20Injection.jpg", description: "Vasopressor for hemodynamic support in critical care shock management." },
+    { id: "cc-021", category: "critical-care-supply", name: "Noradrenaline Injection", image: "/assets/medical%20injectible/Noradrenaline%20Injection.jpeg", description: "Potent vasopressor for severe hypotension in ICU patients." },
+    { id: "cc-022", category: "critical-care-supply", name: "Adrenaline Injection", image: "/assets/medical%20injectible/Adrenaline%20Injection.jpeg", description: "Emergency adrenaline injection for cardiac arrest and anaphylaxis in ICU." },
+    { id: "cc-023", category: "critical-care-supply", name: "Hydrocortisone Injection", image: "/assets/medical%20injectible/Hydrocortisone%20Injection.jpeg", description: "Corticosteroid for adrenal crisis and septic shock in critical care." },
+    { id: "cc-024", category: "critical-care-supply", name: "Sodium Bicarbonate Injection", image: "/assets/medical%20injectible/Sodium%20Bicarbonate%20Injection.jpg", description: "Alkalinizing agent for metabolic acidosis correction in ICU." },
+    { id: "cc-025", category: "critical-care-supply", name: "Potassium Chloride Injection", image: "/assets/medical%20injectible/Potassium%20Chloride%20Injection.jpg", description: "Electrolyte replacement for critical hypokalemia in ICU patients." },
+    { id: "cc-026", category: "critical-care-supply", name: "Magnesium Sulphate Injection", image: "/assets/medical%20injectible/Magnesium%20Sulphate%20Injection.jpg", description: "Essential for eclampsia and arrhythmia management in critical care." },
+    { id: "cc-027", category: "critical-care-supply", name: "Paracetamol Injection", image: "/assets/medical%20injectible/Paracetamol%20Injection.png", description: "IV analgesic and antipyretic for fever control in ICU patients." },
+    { id: "cc-028", category: "critical-care-supply", name: "Tramadol Injection", image: "/assets/medical%20injectible/Tramadol%20Injection.webp", description: "Opioid analgesic for moderate to severe pain management in critical care." },
+    { id: "cc-029", category: "critical-care-supply", name: "Midazolam Injection", image: "/assets/medical%20injectible/Midazolam%20Injection.jpg", description: "Benzodiazepine for ICU sedation and seizure management." },
+    { id: "cc-030", category: "critical-care-supply", name: "Diazepam Injection", image: "/assets/medical%20injectible/Diazepam%20Injection.jpeg", description: "Benzodiazepine for status epilepticus and anxiety in critical care." },
+    { id: "cc-031", category: "critical-care-supply", name: "Heparin Injection", image: "/assets/medical%20injectible/Heparin%20Injection.jpg", description: "Anticoagulant for DVT prophylaxis and thrombosis in ICU patients." },
+    { id: "cc-032", category: "critical-care-supply", name: "Streptokinase Injection", image: "/assets/medical%20injectible/Streptokinase%20Injection.jpg", description: "Thrombolytic agent for acute MI and PE in critical care emergencies." },
+    { id: "cc-033", category: "critical-care-supply", name: "Enoxaparin Injection", image: "/assets/medical%20injectible/Enoxaparin%20Injection.jpeg", description: "Low molecular weight heparin for anticoagulation in ICU patients." },
+
+    // All Type Physio Item
+    { id: "pi-001", category: "physio-item", name: "Ultrasound Machine", image: "/assets/Hospital%20Infrastructure/ultrasound-machine.jpg", description: "Therapeutic ultrasound machine for physiotherapy and pain management." },
+    { id: "pi-002", category: "physio-item", name: "Traction Pulleys", image: "/assets/orthopedic/Traction%20pulleys.png", description: "Pulleys for physiotherapy traction therapy and rehabilitation." },
+    { id: "pi-003", category: "physio-item", name: "Traction Weights", image: "/assets/orthopedic/Traction%20weights.jpeg", description: "Calibrated weights for controlled physiotherapy traction treatment." },
+    { id: "pi-004", category: "physio-item", name: "Bohler Braun Frame", image: "/assets/orthopedic/Bohler%20Braun%20frame.jpg", description: "Bohler Braun frame for skeletal traction and limb elevation therapy." },
+    { id: "pi-005", category: "physio-item", name: "Wheelchair", image: "/assets/Hospital%20Infrastructure/wheelchair.jpg", description: "Foldable wheelchair for patient mobility and physiotherapy support." },
+    { id: "pi-006", category: "physio-item", name: "Stretcher", image: "/assets/Hospital%20Infrastructure/stretcher_.jpg", description: "Patient stretcher trolley for safe transport and physiotherapy sessions." },
+    { id: "pi-007", category: "physio-item", name: "Orthopedic Mallet", image: "/assets/orthopedic/Mallet%20(orthopedic%20hammer).jpg", description: "Orthopedic mallet for physiotherapy assessment and treatment procedures." },
+    { id: "pi-008", category: "physio-item", name: "Tourniquet Machine", image: "/assets/orthopedic/Tourniquet%20machine.jpg", description: "Digital pneumatic tourniquet system for physiotherapy and rehabilitation." },
+    { id: "pi-009", category: "physio-item", name: "Tourniquet Cuffs", image: "/assets/orthopedic/Tourniquet%20cuffs.jpg", description: "Reusable tourniquet cuffs for physiotherapy blood flow restriction training." },
+
+    // Obs Gynecologist Item
+    { id: "og-001", category: "obs-gynecologist-item", name: "Gynecology Instruments", image: "/assets/surgical%20items/Gynecology%20instruments.webp", description: "Complete set of instruments for gynecological examinations and procedures." },
+    { id: "og-002", category: "obs-gynecologist-item", name: "Maternity Surgical Drape", image: "/assets/surgical%20items/maternity-surgical-drape.jpg", description: "Sterile drape kit designed for maternity and obstetric procedures." },
+    { id: "og-003", category: "obs-gynecologist-item", name: "Oxytocin Injection", image: "/assets/medical%20injectible/Oxytocin%20Injection.jpg", description: "Oxytocin hormone injection for labor induction and postpartum care." },
+    { id: "og-004", category: "obs-gynecologist-item", name: "Surgical Operating Table", image: "/assets/surgical%20items/Operating%20table.jpg", description: "Versatile operating table for obstetric and gynecological surgeries." },
+    { id: "og-005", category: "obs-gynecologist-item", name: "OT Light", image: "/assets/surgical%20items/ot%20light2.webp", description: "Ceiling-mounted surgical operating light for OB-GYN procedures." },
+    { id: "og-006", category: "obs-gynecologist-item", name: "Surgical Retractor", image: "/assets/surgical%20items/retractor.webp", description: "Hand-held retractor for tissue exposure in gynecological surgery." },
+    { id: "og-007", category: "obs-gynecologist-item", name: "Sponge Holding Forceps", image: "/assets/surgical%20items/Sponge%20holding%20forceps.webp", description: "Sponge holding forceps for prepping and clamping in OB-GYN procedures." },
+    { id: "og-008", category: "obs-gynecologist-item", name: "Sterile Drapes", image: "/assets/orthopedic/Sterile%20drapes%20(limb%20drapes).jpg", description: "Sterile surgical drapes for maintaining aseptic field during delivery." },
+    { id: "og-009", category: "obs-gynecologist-item", name: "Surgical Tapes", image: "/assets/surgical%20items/Surgical%20tapes.jpg", description: "Hypoallergenic surgical tapes for post-operative dressing retention." },
+    { id: "og-010", category: "obs-gynecologist-item", name: "Surgical Sponges", image: "/assets/surgical%20items/Surgical%20sponges.png", description: "Absorbent surgical sponges for fluid control during gynecological procedures." },
+    { id: "og-011", category: "obs-gynecologist-item", name: "Dressing Pads", image: "/assets/surgical%20items/Dressing%20pads.webp", description: "Sterile dressing pads for post-operative wound care in OB-GYN." },
+    { id: "og-012", category: "obs-gynecologist-item", name: "Bandage Roll", image: "/assets/Medical%20Consumable/bandage%20roll.jpg", description: "Cotton bandage roll for obstetric and gynecological dressing retention." },
+    { id: "og-013", category: "obs-gynecologist-item", name: "Absorbable Sutures", image: "/assets/Medical%20Consumable/sutures%20absorbable.webp", description: "Absorbable sutures for internal closure in obstetric surgeries." },
+    { id: "og-014", category: "obs-gynecologist-item", name: "Non-Absorbable Sutures", image: "/assets/Medical%20Consumable/sutures%20non%20absorbable..webp", description: "Non-absorbable sutures for skin closure in gynecological procedures." },
+    { id: "og-015", category: "obs-gynecologist-item", name: "Foley Catheter", image: "/assets/Medical%20Consumable/foley%20catheter.webp", description: "Sterile silicone coated foley catheter for obstetric and post-surgical use." },
+    { id: "og-016", category: "obs-gynecologist-item", name: "Urine Collection Bag", image: "/assets/Medical%20Consumable/urine-collection-bag.webp", description: "Graduated urine collection bag for post-operative monitoring." },
+
+    // Opthal Item
+    { id: "oi-001", category: "opthal-item", name: "Surgical Microscope", image: "/assets/surgical%20items/Surgical%20microscope.jpg", description: "High-magnification surgical microscope for ophthalmic microsurgery." },
+    { id: "oi-002", category: "opthal-item", name: "Fine Forceps", image: "/assets/orthopedic/Fine%20forceps.png", description: "Delicate fine forceps for precise tissue handling in eye surgery." },
+    { id: "oi-003", category: "opthal-item", name: "Micro Needle Holders", image: "/assets/orthopedic/Micro%20needle%20holders.jpg", description: "Micro needle holders for fine ophthalmic suturing." },
+    { id: "oi-004", category: "opthal-item", name: "Surgical Blade", image: "/assets/Medical%20Consumable/surgical%20blade.jpg", description: "Precision surgical blades for ophthalmic incisions." },
+    { id: "oi-005", category: "opthal-item", name: "Scalpel Handles", image: "/assets/surgical%20items/Scalpel%20handles.jpg", description: "Reusable stainless steel scalpel handles for eye surgery." },
+    { id: "oi-006", category: "opthal-item", name: "Sterile Dressing Pad", image: "/assets/Medical%20Consumable/sterile%20dressing%20pad.jpg", description: "Sterile dressing pad for post-operative eye wound care." },
+    { id: "oi-007", category: "opthal-item", name: "Gauze Swabs", image: "/assets/Medical%20Consumable/gauze-swabs.webp", description: "Sterile gauze swabs for gentle cleaning around the eye area." },
+
+    // Cardiology Item
+    { id: "ci-001", category: "cardiology-item", name: "ECG Machine", image: "/assets/Hospital%20Infrastructure/ecg%20machine%202.webp", description: "12-lead ECG machine for comprehensive cardiac monitoring and diagnostics." },
+    { id: "ci-002", category: "cardiology-item", name: "ECG Meter", image: "/assets/Hospital%20Infrastructure/ecg%20meter.jpg", description: "Portable ECG meter for quick cardiac rhythm assessment." },
+    { id: "ci-003", category: "cardiology-item", name: "ECG Electrodes", image: "/assets/Medical%20Consumable/ecg%20electrodes.jpg", description: "Disposable ECG electrodes for accurate cardiac signal acquisition." },
+    { id: "ci-004", category: "cardiology-item", name: "Defibrillator", image: "/assets/Hospital%20Infrastructure/defibrillator.jpg", description: "Life-saving defibrillator for cardiac arrest and arrhythmia management." },
+    { id: "ci-005", category: "cardiology-item", name: "Stethoscope", image: "/assets/surgical%20items/-stethoscope3.png", description: "High-quality stethoscope for cardiac auscultation and heart sound assessment." },
+    { id: "ci-006", category: "cardiology-item", name: "Patient Monitor", image: "/assets/Hospital%20Infrastructure/patient%20monitor.avif", description: "Multi-parameter patient monitor for continuous cardiac vital signs tracking." },
+    { id: "ci-007", category: "cardiology-item", name: "Manual BP Apparatus", image: "/assets/surgical%20items/bp%20apparatus%20manual.webp", description: "Aneroid manual blood pressure apparatus for cardiology assessment." },
+    { id: "ci-008", category: "cardiology-item", name: "Electronic BP Apparatus", image: "/assets/surgical%20items/bp%20apparatus%20electronic%20machine.webp", description: "Digital blood pressure monitor for accurate cardiovascular readings." },
+    { id: "ci-009", category: "cardiology-item", name: "Amiodarone Injection", image: "/assets/medical%20injectible/Amiodarone%20Injection.jpg", description: "Antiarrhythmic medication for life-threatening cardiac arrhythmias." },
+    { id: "ci-010", category: "cardiology-item", name: "Nitroglycerin Injection", image: "/assets/medical%20injectible/Nitroglycerin%20Injection.jpg", description: "Vasodilator for angina pectoris and acute heart failure management." },
+    { id: "ci-011", category: "cardiology-item", name: "Dopamine Injection", image: "/assets/medical%20injectible/Dopamine%20Injection.jpg", description: "Vasopressor for cardiogenic shock and hemodynamic support." },
+    { id: "ci-012", category: "cardiology-item", name: "Noradrenaline Injection", image: "/assets/medical%20injectible/Noradrenaline%20Injection.jpeg", description: "Potent vasopressor for severe hypotension in cardiac emergencies." },
+    { id: "ci-013", category: "cardiology-item", name: "Heparin Injection", image: "/assets/medical%20injectible/Heparin%20Injection.jpg", description: "Anticoagulant for preventing thrombosis in cardiac patients." },
+    { id: "ci-014", category: "cardiology-item", name: "Streptokinase Injection", image: "/assets/medical%20injectible/Streptokinase%20Injection.jpg", description: "Thrombolytic agent for acute myocardial infarction treatment." },
+    { id: "ci-015", category: "cardiology-item", name: "Enoxaparin Injection", image: "/assets/medical%20injectible/Enoxaparin%20Injection.jpeg", description: "Low molecular weight heparin for cardiac anticoagulation therapy." },
+    { id: "ci-016", category: "cardiology-item", name: "Adrenaline Injection", image: "/assets/medical%20injectible/Adrenaline%20Injection.jpeg", description: "Emergency adrenaline for cardiac arrest resuscitation." },
+    { id: "ci-017", category: "cardiology-item", name: "Furosemide Injection", image: "/assets/medical%20injectible/Furosemide%20Injection.jpeg", description: "Loop diuretic for acute heart failure and pulmonary edema." },
+
+    // Neuro Item
+    { id: "ni-001", category: "neuro-item", name: "Neurosurgery Instruments", image: "/assets/surgical%20items/Neurosurgery%20instruments.jpg", description: "Precision instruments for neurosurgical procedures and brain surgery." },
+    { id: "ni-002", category: "neuro-item", name: "Diazepam Injection", image: "/assets/medical%20injectible/Diazepam%20Injection.jpeg", description: "Benzodiazepine for status epilepticus and neurological seizure control." },
+    { id: "ni-003", category: "neuro-item", name: "Phenytoin Injection", image: "/assets/medical%20injectible/Phenytoin%20Injection.jpg", description: "Antiepileptic for seizure prevention in neurosurgical patients." },
+    { id: "ni-004", category: "neuro-item", name: "Levetiracetam Injection", image: "/assets/medical%20injectible/Levetiracetam%20Injection.jpg", description: "Antiepileptic medication for neurological seizure management." },
+    { id: "ni-005", category: "neuro-item", name: "Haloperidol Injection", image: "/assets/medical%20injectible/Haloperidol%20Injection.jpg", description: "Antipsychotic for acute agitation and delirium in neuro patients." },
+    { id: "ni-006", category: "neuro-item", name: "Propofol Injection", image: "/assets/medical%20injectible/Propofol%20Injection.jpg", description: "Intravenous anesthetic for neurosurgical sedation and anesthesia." },
+    { id: "ni-007", category: "neuro-item", name: "Midazolam Injection", image: "/assets/medical%20injectible/Midazolam%20Injection.jpg", description: "Benzodiazepine for procedural sedation in neurology." },
+    { id: "ni-008", category: "neuro-item", name: "Ketamine Injection", image: "/assets/medical%20injectible/Ketamine%20Injection.webp", description: "Dissociative anesthetic for neurosurgical procedures." },
+    { id: "ni-009", category: "neuro-item", name: "Surgical Microscope", image: "/assets/surgical%20items/Surgical%20microscope.jpg", description: "Advanced surgical microscope for delicate neurosurgical operations." },
+    { id: "ni-010", category: "neuro-item", name: "Nerve Retractors", image: "/assets/orthopedic/Nerve%20retractors.jpg", description: "Delicate retractors for nerve protection during neurosurgery." },
+    { id: "ni-011", category: "neuro-item", name: "Kerrison Rongeurs", image: "/assets/orthopedic/Kerrison%20rongeurs.jpg", description: "Kerrison rongeurs for laminectomy and spinal neurosurgery." },
+    { id: "ni-012", category: "neuro-item", name: "Bone Curettes", image: "/assets/orthopedic/Bone%20curettes.jpg", description: "Surgical bone curettes for cranial and spinal bone procedures." },
+    { id: "ni-013", category: "neuro-item", name: "Oscillating Saw", image: "/assets/orthopedic/Oscillating%20saw.jpg", description: "Powered oscillating saw for craniotomy and neurosurgical bone cutting." },
+
+    // Pediatric
+    { id: "pd-001", category: "pediatric", name: "Caffeine Citrate Injection", image: "/assets/medical%20injectible/Caffeine%20Citrate%20Injection.jpg", description: "Respiratory stimulant for apnea of prematurity in neonates." },
+    { id: "pd-002", category: "pediatric", name: "Surfactant Injection", image: "/assets/medical%20injectible/Surfactant%20Injection.jpg", description: "Lung surfactant for neonatal respiratory distress syndrome." },
+    { id: "pd-003", category: "pediatric", name: "Feeding Tube", image: "/assets/Medical%20Consumable/feeding%20tube.jpg", description: "Nasogastric feeding tube for pediatric and neonatal enteral nutrition." },
+    { id: "pd-004", category: "pediatric", name: "Ryles Tube (Standard)", image: "/assets/Medical%20Consumable/ryle%20tube.jpg", description: "Standard nasogastric tube for pediatric suction or feeding." },
+    { id: "pd-005", category: "pediatric", name: "Ryles Tube (Advanced)", image: "/assets/Medical%20Consumable/ryle%20tube%202.jpg", description: "Advanced material ryles tube for pediatric use." },
+    { id: "pd-006", category: "pediatric", name: "Oxygen Mask", image: "/assets/Medical%20Consumable/oxygen-mask-.jpeg", description: "Pediatric-sized oxygen mask for respiratory therapy in children." },
+    { id: "pd-007", category: "pediatric", name: "Nebulizer", image: "/assets/Hospital%20Infrastructure/nebulizer.webp", description: "Compressor nebulizer for pediatric respiratory therapy." },
+    { id: "pd-008", category: "pediatric", name: "Nebulizer Kit", image: "/assets/Medical%20Consumable/nebulizer%20kit.jpg", description: "Complete pediatric nebulizer mask and tubing kit." },
+    { id: "pd-009", category: "pediatric", name: "Glucometer", image: "/assets/Hospital%20Infrastructure/glucometer.jpg", description: "Portable blood glucose monitoring for pediatric patients." },
+    { id: "pd-010", category: "pediatric", name: "Digital Thermometer", image: "/assets/Hospital%20Infrastructure/digital%20thermometer.jpg", description: "Fast and accurate digital thermometer for pediatric use." },
+
+    // Urology
+    { id: "ur-001", category: "urology", name: "Urology Instruments", image: "/assets/surgical%20items/Urology%20instruments.webp", description: "Specialized instruments for urological surgeries and procedures." },
+    { id: "ur-002", category: "urology", name: "Foley Catheter", image: "/assets/Medical%20Consumable/foley%20catheter.webp", description: "Sterile silicone coated foley catheter for urinary drainage." },
+    { id: "ur-003", category: "urology", name: "Urine Collection Bag", image: "/assets/Medical%20Consumable/urine-collection-bag.webp", description: "Graduated urine collection bag for urological monitoring." },
+    { id: "ur-004", category: "urology", name: "Ryles Tube (Standard)", image: "/assets/Medical%20Consumable/ryle%20tube.jpg", description: "Standard nasogastric tube for urological patient care." },
+    { id: "ur-005", category: "urology", name: "Ryles Tube (Advanced)", image: "/assets/Medical%20Consumable/ryle%20tube%202.jpg", description: "Advanced material ryles tube for urological applications." },
+    { id: "ur-006", category: "urology", name: "Probe and Director", image: "/assets/surgical%20items/Probe%20and%20director.webp", description: "Surgical probe and director set for urological exploration." },
+    { id: "ur-007", category: "urology", name: "Surgical Blade", image: "/assets/Medical%20Consumable/surgical%20blade.jpg", description: "Sterile surgical blades for urological incisions." },
+    { id: "ur-008", category: "urology", name: "Sterile Dressing Pad", image: "/assets/Medical%20Consumable/sterile%20dressing%20pad.jpg", description: "Absorbent sterile dressing pad for post-operative urological wound care." },
+    { id: "ur-009", category: "urology", name: "Gauze Swabs", image: "/assets/Medical%20Consumable/gauze-swabs.webp", description: "Sterile gauze swabs for wound cleaning in urology procedures." },
+
+    // Gastroenterology
+    { id: "ge-001", category: "gastroenterology", name: "Endoscopy System", image: "/assets/surgical%20items/Endoscopy%20system.jpg", description: "High-definition endoscopy system for GI tract diagnosis and procedures." },
+    { id: "ge-002", category: "gastroenterology", name: "Laparoscopic Tower", image: "/assets/surgical%20items/Laparoscopic%20tower.jpg", description: "Complete laparoscopic tower for minimally invasive GI surgery." },
+    { id: "ge-003", category: "gastroenterology", name: "Feeding Tube", image: "/assets/Medical%20Consumable/feeding%20tube.jpg", description: "Nasogastric feeding tube for enteral nutrition in GI patients." },
+    { id: "ge-004", category: "gastroenterology", name: "Ryles Tube (Standard)", image: "/assets/Medical%20Consumable/ryle%20tube.jpg", description: "Standard nasogastric tube for gastric suction and decompression." },
+    { id: "ge-005", category: "gastroenterology", name: "Ryles Tube (Advanced)", image: "/assets/Medical%20Consumable/ryle%20tube%202.jpg", description: "Advanced nasogastric tube for gastroenterology applications." },
+    { id: "ge-006", category: "gastroenterology", name: "Pantoprazole Injection", image: "/assets/medical%20injectible/Pantoprazole%20Injection.jpeg", description: "Proton pump inhibitor for gastric acid suppression and ulcer treatment." },
+    { id: "ge-007", category: "gastroenterology", name: "Ondansetron Injection", image: "/assets/medical%20injectible/Ondansetron%20Injection.jpg", description: "Antiemetic for nausea and vomiting in GI conditions." },
+    { id: "ge-008", category: "gastroenterology", name: "Metoclopramide Injection", image: "/assets/medical%20injectible/Metoclopramide%20Injection.png", description: "Prokinetic agent for gastroparesis and GI motility disorders." },
+    { id: "ge-009", category: "gastroenterology", name: "Ceftriaxone 1g Injection", image: "/assets/medical%20injectible/Ceftriaxone%20Injection%201g.webp", description: "Third-generation cephalosporin for GI infections." },
+    { id: "ge-010", category: "gastroenterology", name: "Amoxicillin + Clavulanic Acid", image: "/assets/medical%20injectible/Amoxicillin%20+%20Clavulanic%20Acid%20Injection.jpg", description: "Broad-spectrum antibiotic for abdominal and GI infections." },
+    { id: "ge-011", category: "gastroenterology", name: "Meropenem Injection", image: "/assets/medical%20injectible/Meropenem%20Injection.jpg", description: "Carbapenem antibiotic for severe intra-abdominal infections." },
+    { id: "ge-012", category: "gastroenterology", name: "Vancomycin Injection", image: "/assets/medical%20injectible/Vancomycin%20Injection.jpg", description: "Glycopeptide antibiotic for C. difficile and resistant GI infections." },
+    { id: "ge-013", category: "gastroenterology", name: "Gentamicin Injection", image: "/assets/medical%20injectible/Gentamicin%20Injection.jpg", description: "Aminoglycoside antibiotic for serious GI bacterial infections." },
 ];

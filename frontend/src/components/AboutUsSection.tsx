@@ -14,7 +14,7 @@ const AboutUsSection = () => {
   useEffect(() => {
     setMounted(true);
     setWindowWidth(window.innerWidth);
-    
+
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -24,19 +24,15 @@ const AboutUsSection = () => {
     "FDA-Approved Medical Equipment",
     "Bulk Wholesale Pricing",
     "24/7 Technical Support",
-    "Fast Global Shipping",
+    "Fast Shipping",
   ];
 
   if (!mounted) return null;
 
   return (
-    <section 
+    <section
       id="about"
-      className="py-24 md:py-24 pb-12 md:pb-40 bg-white overflow-hidden"
-      style={{
-        paddingTop: windowWidth === 1024 ? '3rem' : undefined,
-        paddingBottom: windowWidth === 1024 ? '4rem' : windowWidth === 768 ? '4rem' : windowWidth >= 1440 ? '6rem' : undefined
-      }}
+      className="pt-12 pb-12 md:pt-12 md:pb-16 lg:pt-12 lg:pb-16 xl:pt-16 xl:pb-24 bg-white overflow-hidden"
     >
       <div className="w-full px-6 sm:px-12 lg:pl-16 xl:pl-32 lg:pr-16 xl:pr-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

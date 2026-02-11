@@ -56,20 +56,28 @@ const ProductShowcaseSection = () => {
                         <div className="sticky top-32">
                             <h3 className="text-2xl font-bold text-[#044581] mb-6 hidden lg:block">Categories</h3>
 
-                            {/* Desktop Sidebar List */}
-                            <div className="hidden lg:flex flex-col gap-2">
-                                {categories.map((cat) => (
-                                    <button
-                                        key={cat.id}
-                                        onClick={() => setActiveCategory(cat.id)}
-                                        className={`text-left px-5 py-4 rounded-xl transition-all duration-300 font-medium text-lg border ${activeCategory === cat.id
-                                            ? "bg-[#044581] text-white border-[#044581] shadow-lg transform translate-x-2"
-                                            : "bg-white text-gray-600 border-transparent hover:border-[#3cacae]/30 hover:bg-white/80"
-                                            }`}
-                                    >
-                                        {cat.name}
-                                    </button>
-                                ))}
+                            {/* Desktop Sidebar List - Scrollable Container */}
+                            <div className="hidden lg:block">
+                                <div
+                                    className="flex flex-col gap-2 max-h-[480px] overflow-y-auto overflow-x-hidden pr-1"
+                                    style={{
+                                        scrollbarWidth: 'thin',
+                                        scrollbarColor: '#3cacae transparent',
+                                    }}
+                                >
+                                    {categories.map((cat) => (
+                                        <button
+                                            key={cat.id}
+                                            onClick={() => setActiveCategory(cat.id)}
+                                            className={`text-left px-5 py-3.5 rounded-xl transition-all duration-300 font-medium text-[15px] border shrink-0 ${activeCategory === cat.id
+                                                ? "bg-[#044581] text-white border-[#044581] shadow-lg transform translate-x-2"
+                                                : "bg-white text-gray-600 border-transparent hover:border-[#3cacae]/30 hover:bg-white/80"
+                                                }`}
+                                        >
+                                            {cat.name}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Mobile Dropdown */}
@@ -98,7 +106,7 @@ const ProductShowcaseSection = () => {
                             <div className="hidden lg:block mt-8 p-6 bg-[#3cacae]/10 rounded-2xl border border-[#3cacae]/20">
                                 <h4 className="font-semibold text-[#044581] mb-2">Need Custom Equipment?</h4>
                                 <p className="text-sm text-gray-600 mb-4">We supply bulk orders for specialized hospital requirements.</p>
-                                <button 
+                                <button
                                     onClick={() => window.open('https://wa.me/919554657717?text=Hi, I need custom medical equipment for bulk order', '_blank')}
                                     className="text-sm font-bold text-[#3cacae] hover:underline cursor-pointer"
                                 >
@@ -147,7 +155,7 @@ const ProductShowcaseSection = () => {
                                         </p>
 
                                         <div className="mt-auto">
-                                            <Button 
+                                            <Button
                                                 className="w-full bg-[#044581] hover:bg-[#3cacae] text-white text-xs h-8 rounded-md transition-colors duration-300"
                                                 onClick={() => window.open(`https://wa.me/919554657717?text=Hi, I want to know the price of ${encodeURIComponent(product.name)}`, '_blank')}
                                             >
