@@ -8,7 +8,9 @@ import Image from 'next/image';
 import { categories, products } from '@/data/products';
 
 const ProductShowcaseSection = () => {
-    const [activeCategory, setActiveCategory] = useState(categories[0].id);
+    // Exclude medical-chemicals from homepage showcase (no images)
+    const showcaseCategories = categories.filter(c => c.id !== 'medical-chemicals');
+    const [activeCategory, setActiveCategory] = useState(showcaseCategories[0].id);
     const [maxProducts, setMaxProducts] = useState(9);
 
     // Responsive product count
@@ -65,7 +67,7 @@ const ProductShowcaseSection = () => {
                                         scrollbarColor: '#3cacae transparent',
                                     }}
                                 >
-                                    {categories.map((cat) => (
+                                    {showcaseCategories.map((cat) => (
                                         <button
                                             key={cat.id}
                                             onClick={() => setActiveCategory(cat.id)}
@@ -90,7 +92,7 @@ const ProductShowcaseSection = () => {
                                         onChange={(e) => setActiveCategory(e.target.value)}
                                         className="w-full appearance-none bg-white border border-gray-200 text-gray-800 py-3 px-4 pr-8 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-[#3cacae]"
                                     >
-                                        {categories.map((cat) => (
+                                        {showcaseCategories.map((cat) => (
                                             <option key={cat.id} value={cat.id}>
                                                 {cat.name}
                                             </option>

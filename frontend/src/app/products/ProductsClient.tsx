@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { products, categories, Product } from '@/data/products';
 import { Button } from '@/components/ui/button';
-import { Search, Filter, ArrowRight, Syringe, Pill, Stethoscope, Microscope, Activity } from 'lucide-react';
+import { Search, Filter, ArrowRight, Syringe, Pill, Stethoscope, Microscope, Activity, FlaskConical, TestTubes, Droplets, Wind, ShieldCheck, Scan, Wrench, BadgeCheck, MessageCircle } from 'lucide-react';
 import Header from '@/components/Header';
 
 const ProductsContent = () => {
@@ -246,9 +246,115 @@ const ProductsContent = () => {
                     </select>
                 </div>
 
-                {/* Product Grid */}
+                {/* Product Grid / Chemical Table */}
                 {
-                    currentProducts.length > 0 ? (
+                    activeCategory === 'medical-chemicals' ? (
+                        /* ── Medical Chemicals: Grouped Table View ── */
+                        (() => {
+                            const chemicalProducts = filteredProducts.filter(p => p.category === 'medical-chemicals');
+
+                            const subcategoryConfig: Record<string, { icon: React.ReactNode; accent: string; bg: string; border: string }> = {
+                                'Disinfectants & Antiseptics': { icon: <ShieldCheck className="w-5 h-5" />, accent: 'text-emerald-700', bg: 'bg-emerald-50', border: 'border-emerald-200' },
+                                'Medical Gases': { icon: <Wind className="w-5 h-5" />, accent: 'text-sky-700', bg: 'bg-sky-50', border: 'border-sky-200' },
+                                'Laboratory Chemicals': { icon: <FlaskConical className="w-5 h-5" />, accent: 'text-violet-700', bg: 'bg-violet-50', border: 'border-violet-200' },
+                                'Pathology & Histology': { icon: <Microscope className="w-5 h-5" />, accent: 'text-rose-700', bg: 'bg-rose-50', border: 'border-rose-200' },
+                                'Cleaning & Sterilization': { icon: <Droplets className="w-5 h-5" />, accent: 'text-cyan-700', bg: 'bg-cyan-50', border: 'border-cyan-200' },
+                                'IV & Dialysis Solutions': { icon: <TestTubes className="w-5 h-5" />, accent: 'text-blue-700', bg: 'bg-blue-50', border: 'border-blue-200' },
+                                'Radiology & Imaging': { icon: <Scan className="w-5 h-5" />, accent: 'text-amber-700', bg: 'bg-amber-50', border: 'border-amber-200' },
+                                'Maintenance & Emergency': { icon: <Wrench className="w-5 h-5" />, accent: 'text-red-700', bg: 'bg-red-50', border: 'border-red-200' },
+                                'Quality Control': { icon: <BadgeCheck className="w-5 h-5" />, accent: 'text-green-700', bg: 'bg-green-50', border: 'border-green-200' },
+                            };
+
+                            // Group by subcategory
+                            const grouped: Record<string, Product[]> = {};
+                            chemicalProducts.forEach(p => {
+                                const sub = p.subcategory || 'Other';
+                                if (!grouped[sub]) grouped[sub] = [];
+                                grouped[sub].push(p);
+                            });
+
+                            // Filter by search
+                            const filteredGrouped: Record<string, Product[]> = {};
+                            Object.entries(grouped).forEach(([sub, items]) => {
+                                const filtered = items.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase()));
+                                if (filtered.length > 0) filteredGrouped[sub] = filtered;
+                            });
+
+                            return Object.keys(filteredGrouped).length > 0 ? (
+                                <div className="space-y-6 animate-fade-up">
+                                    {Object.entries(filteredGrouped).map(([subcategory, items]) => {
+                                        const config = subcategoryConfig[subcategory] || { icon: <FlaskConical className="w-5 h-5" />, accent: 'text-teal-700', bg: 'bg-teal-50', border: 'border-teal-200' };
+                                        return (
+                                            <div key={subcategory} className={`rounded-xl border ${config.border} overflow-hidden shadow-sm`}>
+                                                {/* Subcategory Header */}
+                                                <div className={`${config.bg} px-4 md:px-6 py-3 md:py-4 flex items-center gap-3 border-b ${config.border}`}>
+                                                    <div className={`${config.accent}`}>
+                                                        {config.icon}
+                                                    </div>
+                                                    <h3 className={`font-semibold text-sm md:text-base ${config.accent}`}>
+                                                        {subcategory}
+                                                    </h3>
+                                                    <span className="text-xs text-gray-400 ml-auto">
+                                                        {items.length} {items.length === 1 ? 'item' : 'items'}
+                                                    </span>
+                                                </div>
+
+                                                {/* Chemical Rows */}
+                                                <div className="bg-white divide-y divide-gray-100">
+                                                    {items.map((product, idx) => (
+                                                        <div
+                                                            key={product.id}
+                                                            className="flex items-center gap-3 md:gap-4 px-4 md:px-6 py-3 md:py-4 hover:bg-gray-50/80 transition-colors duration-200 group"
+                                                        >
+                                                            {/* Number */}
+                                                            <span className="text-xs text-gray-300 font-mono w-5 text-right flex-shrink-0">
+                                                                {idx + 1}
+                                                            </span>
+
+                                                            {/* Chemical Info */}
+                                                            <div className="flex-1 min-w-0">
+                                                                <h4 className="font-medium text-gray-900 text-sm md:text-base truncate">
+                                                                    {product.name}
+                                                                </h4>
+                                                                <p className="text-gray-400 text-xs md:text-sm truncate mt-0.5 hidden sm:block">
+                                                                    {product.description}
+                                                                </p>
+                                                            </div>
+
+                                                            {/* Ask Price Button */}
+                                                            <button
+                                                                onClick={() => window.open(`https://wa.me/919554657717?text=Hi, I want to know the price of ${encodeURIComponent(product.name)} (Medical Chemical)`, '_blank')}
+                                                                className="flex-shrink-0 flex items-center gap-1.5 bg-[#044581] hover:bg-[#3cacae] text-white text-xs font-medium px-3 py-1.5 md:px-4 md:py-2 rounded-lg transition-all duration-300 hover:shadow-md"
+                                                            >
+                                                                <MessageCircle className="w-3 h-3 md:w-3.5 md:h-3.5" />
+                                                                <span className="hidden min-[400px]:inline">Ask Price</span>
+                                                            </button>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            ) : (
+                                <div className="flex flex-col items-center justify-center py-20 text-center">
+                                    <div className="text-gray-300 mb-4">
+                                        <Search className="h-16 w-16 mx-auto" />
+                                    </div>
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">No chemicals found</h3>
+                                    <p className="text-gray-500 max-w-md mx-auto mb-6">
+                                        We couldn&apos;t find any chemicals matching &quot;{searchQuery}&quot;. Try a different search term.
+                                    </p>
+                                    <Button
+                                        variant="outline"
+                                        onClick={() => setSearchQuery('')}
+                                    >
+                                        Clear Search
+                                    </Button>
+                                </div>
+                            );
+                        })()
+                    ) : currentProducts.length > 0 ? (
                         <>
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 animate-fade-up">
                                 {currentProducts.map((product) => (

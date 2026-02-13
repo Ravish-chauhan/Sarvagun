@@ -137,6 +137,14 @@ export const categories: Category[] = [
         description: "Endoscopic systems, GI medications, and consumables for gastrointestinal diagnosis and treatment.",
         productCount: 13
     },
+    {
+        id: "medical-chemicals",
+        name: "Essential Hospital Chemicals",
+        slug: "medical-chemicals",
+        image: "",
+        description: "Essential laboratory chemicals, staining reagents, sterilization solutions, and diagnostic chemicals for hospitals and pathology labs.",
+        productCount: 80
+    },
 ];
 
 export const products: Product[] = [
@@ -808,4 +816,90 @@ export const products: Product[] = [
     { id: "ge-011", category: "gastroenterology", name: "Meropenem Injection", image: "/assets/medical%20injectible/Meropenem%20Injection.jpg", description: "Carbapenem antibiotic for severe intra-abdominal infections." },
     { id: "ge-012", category: "gastroenterology", name: "Vancomycin Injection", image: "/assets/medical%20injectible/Vancomycin%20Injection.jpg", description: "Glycopeptide antibiotic for C. difficile and resistant GI infections." },
     { id: "ge-013", category: "gastroenterology", name: "Gentamicin Injection", image: "/assets/medical%20injectible/Gentamicin%20Injection.jpg", description: "Aminoglycoside antibiotic for serious GI bacterial infections." },
+
+    // Medical Chemicals — Disinfectants & Antiseptics
+    { id: "mch-001", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Ethyl Alcohol (70%)", image: "", description: "Medical-grade ethyl alcohol solution for surface and skin disinfection." },
+    { id: "mch-002", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Isopropyl Alcohol", image: "", description: "Isopropyl alcohol for antiseptic cleaning and sterilization." },
+    { id: "mch-003", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Chlorhexidine Gluconate", image: "", description: "Broad-spectrum antiseptic for surgical scrub and wound care." },
+    { id: "mch-004", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Povidone-Iodine", image: "", description: "Iodine-based antiseptic for pre-operative skin preparation." },
+    { id: "mch-005", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Hydrogen Peroxide", image: "", description: "Oxidizing agent for wound cleaning and surface disinfection." },
+    { id: "mch-006", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Sodium Hypochlorite", image: "", description: "Chlorine-based disinfectant for surfaces and water treatment." },
+    { id: "mch-007", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Phenol", image: "", description: "Phenolic compound for hospital-grade disinfection." },
+    { id: "mch-008", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Glutaraldehyde", image: "", description: "High-level disinfectant for heat-sensitive medical equipment." },
+    { id: "mch-009", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Formaldehyde", image: "", description: "Chemical sterilant for fumigation and tissue preservation." },
+    { id: "mch-010", category: "medical-chemicals", subcategory: "Disinfectants & Antiseptics", name: "Quaternary Ammonium Compounds", image: "", description: "Surface disinfectant for low-level hospital cleaning." },
+
+    // Medical Chemicals — Medical Gases
+    { id: "mch-011", category: "medical-chemicals", subcategory: "Medical Gases", name: "Oxygen", image: "", description: "Medical-grade oxygen for respiratory therapy and anesthesia." },
+    { id: "mch-012", category: "medical-chemicals", subcategory: "Medical Gases", name: "Nitrous Oxide", image: "", description: "Anesthetic gas used for sedation and pain management." },
+    { id: "mch-013", category: "medical-chemicals", subcategory: "Medical Gases", name: "Medical Air", image: "", description: "Compressed medical air for ventilators and respiratory equipment." },
+    { id: "mch-014", category: "medical-chemicals", subcategory: "Medical Gases", name: "Carbon Dioxide", image: "", description: "Medical CO₂ for laparoscopic insufflation and respiratory testing." },
+    { id: "mch-015", category: "medical-chemicals", subcategory: "Medical Gases", name: "Nitrogen", image: "", description: "Medical nitrogen for cryotherapy and equipment pneumatics." },
+    { id: "mch-016", category: "medical-chemicals", subcategory: "Medical Gases", name: "Helium", image: "", description: "Medical helium for pulmonary function testing and MRI cooling." },
+
+    // Medical Chemicals — Laboratory Chemicals
+    { id: "mch-017", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Hydrochloric Acid", image: "", description: "Mineral acid for laboratory reagent preparation and pH adjustment." },
+    { id: "mch-018", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Sulfuric Acid", image: "", description: "Strong acid for laboratory chemical reactions and analysis." },
+    { id: "mch-019", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Nitric Acid", image: "", description: "Oxidizing acid for metal analysis and tissue digestion." },
+    { id: "mch-020", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Sodium Hydroxide", image: "", description: "Strong base for pH adjustment and chemical analysis." },
+    { id: "mch-021", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Ammonium Hydroxide", image: "", description: "Alkaline solution for staining and reagent preparation." },
+    { id: "mch-022", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Acetic Acid", image: "", description: "Weak acid for histology staining and laboratory use." },
+    { id: "mch-023", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Methanol", image: "", description: "Organic solvent for fixation and chromatography." },
+    { id: "mch-024", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Ethanol", image: "", description: "Laboratory-grade ethanol for tissue processing and dehydration." },
+    { id: "mch-025", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Acetone", image: "", description: "Organic solvent for cleaning and dehydration in histology." },
+    { id: "mch-026", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Xylene", image: "", description: "Clearing agent for histology and microscopy slide preparation." },
+    { id: "mch-027", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Chloroform", image: "", description: "Organic solvent used in DNA extraction and laboratory procedures." },
+    { id: "mch-028", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Phosphate Buffer", image: "", description: "Buffering solution for maintaining pH in biological experiments." },
+    { id: "mch-029", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Sodium Chloride", image: "", description: "Reagent-grade salt for preparing saline and buffer solutions." },
+    { id: "mch-030", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Potassium Chloride", image: "", description: "Electrolyte reagent for laboratory analysis and solution preparation." },
+    { id: "mch-031", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Calcium Chloride", image: "", description: "Salt reagent for coagulation testing and solution preparation." },
+    { id: "mch-032", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Hematoxylin", image: "", description: "Nuclear stain for histological tissue examination." },
+    { id: "mch-033", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Eosin", image: "", description: "Cytoplasmic stain used in H&E staining for histopathology." },
+    { id: "mch-034", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Giemsa Stain", image: "", description: "Differential stain for blood smears and parasitology." },
+    { id: "mch-035", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Gram Stain Reagents", image: "", description: "Reagent set for Gram staining of bacterial specimens." },
+    { id: "mch-036", category: "medical-chemicals", subcategory: "Laboratory Chemicals", name: "Wright Stain", image: "", description: "Hematological stain for peripheral blood smear examination." },
+
+    // Medical Chemicals — Pathology & Histology
+    { id: "mch-037", category: "medical-chemicals", subcategory: "Pathology & Histology", name: "Formalin (10%)", image: "", description: "Tissue fixative for preserving biopsy and surgical specimens." },
+    { id: "mch-038", category: "medical-chemicals", subcategory: "Pathology & Histology", name: "Paraffin Wax", image: "", description: "Embedding medium for tissue sectioning in histopathology." },
+    { id: "mch-039", category: "medical-chemicals", subcategory: "Pathology & Histology", name: "Xylene", image: "", description: "Clearing agent for deparaffinization and tissue processing." },
+    { id: "mch-040", category: "medical-chemicals", subcategory: "Pathology & Histology", name: "Ethanol Series", image: "", description: "Graded ethanol solutions for tissue dehydration and rehydration." },
+    { id: "mch-041", category: "medical-chemicals", subcategory: "Pathology & Histology", name: "Mounting Media", image: "", description: "Resinous media for coverslipping histology slides." },
+    { id: "mch-042", category: "medical-chemicals", subcategory: "Pathology & Histology", name: "Clearing Agents", image: "", description: "Organic solvents for tissue clearing prior to embedding." },
+
+    // Medical Chemicals — Cleaning & Sterilization
+    { id: "mch-043", category: "medical-chemicals", subcategory: "Cleaning & Sterilization", name: "Enzymatic Detergents", image: "", description: "Enzyme-based detergents for cleaning surgical instruments." },
+    { id: "mch-044", category: "medical-chemicals", subcategory: "Cleaning & Sterilization", name: "Peracetic Acid", image: "", description: "Chemical sterilant for endoscopes and heat-sensitive devices." },
+    { id: "mch-045", category: "medical-chemicals", subcategory: "Cleaning & Sterilization", name: "Sodium Carbonate", image: "", description: "Alkaline cleaner for instrument decontamination." },
+    { id: "mch-046", category: "medical-chemicals", subcategory: "Cleaning & Sterilization", name: "Detergent Powders", image: "", description: "Medical-grade detergent powder for linen and surface cleaning." },
+    { id: "mch-047", category: "medical-chemicals", subcategory: "Cleaning & Sterilization", name: "Sterilizing Solutions", image: "", description: "Chemical solutions for cold sterilization of instruments." },
+    { id: "mch-048", category: "medical-chemicals", subcategory: "Cleaning & Sterilization", name: "Steam Sterilization Chemicals", image: "", description: "Chemicals used in autoclave steam sterilization processes." },
+
+    // Medical Chemicals — IV & Dialysis Solutions
+    { id: "mch-049", category: "medical-chemicals", subcategory: "IV & Dialysis Solutions", name: "Sodium Chloride (0.9%)", image: "", description: "Isotonic saline solution for IV infusion and dialysis." },
+    { id: "mch-050", category: "medical-chemicals", subcategory: "IV & Dialysis Solutions", name: "Potassium Chloride", image: "", description: "Electrolyte supplement for IV and dialysis solutions." },
+    { id: "mch-051", category: "medical-chemicals", subcategory: "IV & Dialysis Solutions", name: "Calcium Gluconate", image: "", description: "Calcium supplement for parenteral administration." },
+    { id: "mch-052", category: "medical-chemicals", subcategory: "IV & Dialysis Solutions", name: "Sodium Bicarbonate", image: "", description: "Alkalinizing agent for metabolic acidosis and dialysis fluid." },
+    { id: "mch-053", category: "medical-chemicals", subcategory: "IV & Dialysis Solutions", name: "Dextrose", image: "", description: "Glucose solution for caloric supplementation and hypoglycemia." },
+    { id: "mch-054", category: "medical-chemicals", subcategory: "IV & Dialysis Solutions", name: "Lactated Ringer's Components", image: "", description: "Balanced electrolyte components for Ringer's lactate solution." },
+
+    // Medical Chemicals — Radiology & Imaging
+    { id: "mch-055", category: "medical-chemicals", subcategory: "Radiology & Imaging", name: "Developer Solution", image: "", description: "Chemical developer for processing X-ray film images." },
+    { id: "mch-056", category: "medical-chemicals", subcategory: "Radiology & Imaging", name: "Fixer Solution", image: "", description: "Chemical fixer for stabilizing developed X-ray film." },
+    { id: "mch-057", category: "medical-chemicals", subcategory: "Radiology & Imaging", name: "Contrast Media (Iodine-based)", image: "", description: "Iodinated contrast agent for enhanced radiological imaging." },
+    { id: "mch-058", category: "medical-chemicals", subcategory: "Radiology & Imaging", name: "Barium Sulfate", image: "", description: "Radio-opaque contrast agent for GI tract imaging studies." },
+    { id: "mch-059", category: "medical-chemicals", subcategory: "Radiology & Imaging", name: "Silver Nitrate", image: "", description: "Chemical reagent for radiographic film and wound cauterization." },
+
+    // Medical Chemicals — Maintenance & Emergency
+    { id: "mch-060", category: "medical-chemicals", subcategory: "Maintenance & Emergency", name: "Fire Extinguisher Chemicals", image: "", description: "Chemical agents for medical facility fire safety systems." },
+    { id: "mch-061", category: "medical-chemicals", subcategory: "Maintenance & Emergency", name: "Refrigerants", image: "", description: "Cooling chemicals for medical equipment and cold storage." },
+    { id: "mch-062", category: "medical-chemicals", subcategory: "Maintenance & Emergency", name: "Lubricants", image: "", description: "Medical-grade lubricants for instrument and equipment maintenance." },
+    { id: "mch-063", category: "medical-chemicals", subcategory: "Maintenance & Emergency", name: "Battery Acids", image: "", description: "Acid solutions for maintenance of emergency power backup systems." },
+    { id: "mch-064", category: "medical-chemicals", subcategory: "Maintenance & Emergency", name: "Water Treatment Chemicals", image: "", description: "Chemicals for water purification and hospital water system treatment." },
+
+    // Medical Chemicals — Quality Control
+    { id: "mch-065", category: "medical-chemicals", subcategory: "Quality Control", name: "Buffer Solutions (pH 4,7,10)", image: "", description: "Standard buffer solutions for pH meter calibration and testing." },
+    { id: "mch-066", category: "medical-chemicals", subcategory: "Quality Control", name: "Standard Solutions", image: "", description: "Chemically standardized solutions for laboratory quality control." },
+    { id: "mch-067", category: "medical-chemicals", subcategory: "Quality Control", name: "Calibration Gases", image: "", description: "Certified gas mixtures for calibrating medical analyzers." },
+    { id: "mch-068", category: "medical-chemicals", subcategory: "Quality Control", name: "Reference Reagents", image: "", description: "Certified reference reagents for analytical accuracy verification." },
 ];
