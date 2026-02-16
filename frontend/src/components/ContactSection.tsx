@@ -5,6 +5,50 @@ import { Mail, MessageCircle, MapPin, ArrowUpRight, Send } from 'lucide-react';
 
 const ContactSection = () => {
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        email: '',
+        message: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        try {
+            await fetch("https://script.google.com/macros/s/AKfycbzgCYFFLK7Z9Vz_vZp6NNr-reAHY4tugOJtkHkqVw0dxrs7iBixqrgOzUIUyxMg6Knk/exec", {
+                method: "POST",
+                body: JSON.stringify(formData),
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "text/plain;charset=utf-8",
+                },
+            });
+
+            alert("Enquiry Sent Successfully!");
+            setFormData({
+                name: '',
+                phone: '',
+                email: '',
+                message: ''
+            });
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     const contactInfo = [
         {
@@ -15,7 +59,7 @@ const ContactSection = () => {
         {
             icon: MessageCircle,
             title: "WhatsApp us",
-            detail: "+91 95550 88558",
+            detail: "+91 95546 57717",
         },
         {
             icon: MapPin,
@@ -71,7 +115,7 @@ const ContactSection = () => {
                                         window.open('https://wa.me/919554657717?text=Hi, I want to enquire about your products', '_blank');
                                     }
                                 };
-                                
+
                                 return (
                                     <div
                                         key={index}
@@ -80,25 +124,25 @@ const ContactSection = () => {
                                         onMouseLeave={() => setHoveredCard(null)}
                                         onClick={handleClick}
                                     >
-                                    {/* Hover Glow */}
-                                    <div className={`absolute inset-0 bg-[#3cacae]/5 blur-xl transition-opacity duration-500 ${hoveredCard === index ? 'opacity-100' : 'opacity-0'}`} />
+                                        {/* Hover Glow */}
+                                        <div className={`absolute inset-0 bg-[#3cacae]/5 blur-xl transition-opacity duration-500 ${hoveredCard === index ? 'opacity-100' : 'opacity-0'}`} />
 
-                                    <div className="relative z-10 flex items-center justify-between gap-3">
-                                        <div className="flex items-center gap-3 md:gap-5 min-w-0 flex-1">
-                                            <div className="shrink-0 w-12 h-12 rounded-xl bg-[#eff8ff] flex items-center justify-center border border-[#3cacae]/10 group-hover:scale-110 transition-transform duration-300">
-                                                <item.icon className="w-5 h-5 text-[#3cacae]" />
+                                        <div className="relative z-10 flex items-center justify-between gap-3">
+                                            <div className="flex items-center gap-3 md:gap-5 min-w-0 flex-1">
+                                                <div className="shrink-0 w-12 h-12 rounded-xl bg-[#eff8ff] flex items-center justify-center border border-[#3cacae]/10 group-hover:scale-110 transition-transform duration-300">
+                                                    <item.icon className="w-5 h-5 text-[#3cacae]" />
+                                                </div>
+                                                <div className="min-w-0 flex-1">
+                                                    <h4 className="text-[#044581] font-medium text-lg truncate">{item.title}</h4>
+                                                    <p className="text-gray-500 text-sm truncate">{item.detail}</p>
+                                                </div>
                                             </div>
-                                            <div className="min-w-0 flex-1">
-                                                <h4 className="text-[#044581] font-medium text-lg truncate">{item.title}</h4>
-                                                <p className="text-gray-500 text-sm truncate">{item.detail}</p>
+                                            <div className="shrink-0 w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-300 group-hover:bg-[#3cacae] group-hover:border-[#3cacae] group-hover:text-white group-hover:rotate-45">
+                                                <ArrowUpRight className="w-4 h-4 text-gray-400 transition-colors group-hover:text-white" />
                                             </div>
-                                        </div>
-                                        <div className="shrink-0 w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center transition-all duration-300 group-hover:bg-[#3cacae] group-hover:border-[#3cacae] group-hover:text-white group-hover:rotate-45">
-                                            <ArrowUpRight className="w-4 h-4 text-gray-400 transition-colors group-hover:text-white" />
                                         </div>
                                     </div>
-                                </div>
-                            );
+                                );
                             })}
                         </div>
                     </div>
@@ -110,13 +154,17 @@ const ContactSection = () => {
                             <div className="absolute -top-px -right-px w-20 h-20 border-t border-r border-[#3cacae]/30 rounded-tr-3xl" />
                             <div className="absolute -bottom-px -left-px w-20 h-20 border-b border-l border-[#3cacae]/30 rounded-bl-3xl" />
 
-                            <form className="space-y-6">
+                            <form className="space-y-6" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-gray-700 ml-1">Name</label>
                                         <input
                                             type="text"
                                             placeholder="John Doe"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
                                             className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#3cacae] focus:ring-2 focus:ring-[#3cacae]/10 transition-all duration-300"
                                         />
                                     </div>
@@ -125,6 +173,10 @@ const ContactSection = () => {
                                         <input
                                             type="tel"
                                             placeholder="+91 987..."
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            required
                                             className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#3cacae] focus:ring-2 focus:ring-[#3cacae]/10 transition-all duration-300"
                                         />
                                     </div>
@@ -135,6 +187,10 @@ const ContactSection = () => {
                                     <input
                                         type="email"
                                         placeholder="doctor@hospital.com"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        required
                                         className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#3cacae] focus:ring-2 focus:ring-[#3cacae]/10 transition-all duration-300"
                                     />
                                 </div>
@@ -144,16 +200,21 @@ const ContactSection = () => {
                                     <textarea
                                         rows={4}
                                         placeholder="We need a quote for..."
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        required
                                         className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#3cacae] focus:ring-2 focus:ring-[#3cacae]/10 transition-all duration-300 resize-none"
                                     ></textarea>
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="w-full py-4 bg-[#044581] text-white font-bold rounded-xl hover:bg-[#033461] hover:shadow-lg transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2"
+                                    disabled={isSubmitting}
+                                    className={`w-full py-4 bg-[#044581] text-white font-bold rounded-xl hover:bg-[#033461] hover:shadow-lg transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                                 >
                                     <Send className="w-5 h-5" />
-                                    Send Message
+                                    {isSubmitting ? 'Sending...' : 'Send Message'}
                                 </button>
                             </form>
                         </div>

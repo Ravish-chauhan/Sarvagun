@@ -14,7 +14,7 @@ const Header = () => {
     const navLinks = [
         { name: "Home", path: "/" },
         { name: "Product", path: "/products" },
-        { name: "Catalog", path: "/catalog" },
+        { name: "Catalog", path: "/catalog.pdf" },
         { name: "About Us", path: "/#about" },
         { name: "Contact", path: "/#contact" },
     ];
@@ -32,9 +32,9 @@ const Header = () => {
             <div className="hidden min-[950px]:block bg-cyan-500 text-white py-2">
                 <div className="w-full px-4 sm:px-12 lg:px-12 xl:px-24 2xl:px-24 flex justify-between items-center text-sm">
                     <div className="flex items-center gap-6">
-                        <a href="tel:+919555088558" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                        <a href="tel:+919554657717" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                             <Phone className="w-4 h-4" />
-                            <span>+91 95550 88558</span>
+                            <span>+91 95546 57717</span>
                         </a>
                         <a href="mailto:sales@sarvagunenterprises.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                             <Mail className="w-4 h-4" />
@@ -68,6 +68,8 @@ const Header = () => {
                             <Link
                                 key={link.path}
                                 href={link.path}
+                                // Open PDFs in a new tab
+                                target={link.path.endsWith(".pdf") ? "_blank" : undefined}
                                 className={`nav-link relative inline-flex flex-col items-center justify-center px-1 pb-1 text-base font-bold transition-colors duration-300 ${isActive(link.path) ? "text-[#044581] active" : "text-gray-700 hover:text-[#044581]"
                                     }`}
                             >
@@ -106,6 +108,8 @@ const Header = () => {
                                     key={link.path}
                                     href={link.path}
                                     onClick={() => setIsOpen(false)}
+                                    // Open PDFs in a new tab
+                                    target={link.path.endsWith(".pdf") ? "_blank" : undefined}
                                     className={cn(
                                         "py-2 font-medium transition-colors hover:text-[#044581]",
                                         isActive(link.path) ? "text-[#044581]" : "text-gray-700"

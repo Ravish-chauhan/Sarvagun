@@ -236,12 +236,11 @@ const DigitalCard = () => {
 
         <div className="px-6 pb-6 text-center">
           <p className="text-sm text-gray-600 font-medium">
-            © 2025 Sarvagun Enterprises. Quality Healthcare Solutions.
+            © 2026 Sarvagun Enterprises. Quality Healthcare Solutions.
           </p>
           <div className="flex items-center justify-center gap-1 mt-2">
-            <span className="text-xs text-gray-500">Made with</span>
-            <Heart className="w-3 h-3 text-[#3cacae] animate-pulse" />
-            <span className="text-xs text-gray-500">for healthcare</span>
+            <span className="text-xs text-gray-500">Designed by</span>
+            <a href="https://elvion.in" target="_blank" rel="noopener noreferrer" className="text-xs text-[#3cacae] font-bold hover:underline">Elvion</a>
           </div>
         </div>
       </div>

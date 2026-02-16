@@ -77,13 +77,13 @@ const Footer = () => {
                         <p className="text-gray-400 leading-relaxed max-w-xs">
                             Your trusted partner for comprehensive medical infrastructure and hospital supplies. Committed to excellence in healthcare delivery.
                         </p>
-                        <div className="flex items-center gap-4 pt-2">
+                        {/* <div className="flex items-center gap-4 pt-2">
                             {[Facebook, Instagram, Linkedin, Twitter].map((Icon, i) => (
                                 <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#3cacae] hover:text-white transition-all duration-300 border border-white/10 hover:border-[#3cacae]">
                                     <Icon className="w-5 h-5" />
                                 </a>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Links Columns */}
@@ -128,7 +128,7 @@ const Footer = () => {
                             <li className="flex items-start gap-4">
                                 <Phone className="w-5 h-5 text-[#3cacae] shrink-0 mt-1" />
                                 <span className="text-white">
-                                    +91 95550 88558, +91 73552 29509,<br />+91 93359 12006
+                                    +91 95546 57717, +91 73552 29509,<br />+91 93359 12006
                                 </span>
                             </li>
                             <li className="flex items-center gap-4">
@@ -153,8 +153,12 @@ const Footer = () => {
                     </div>
 
                     {/* Copyright and Links */}
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-                        <p>&copy; {currentYear} Sarvagun Enterprises. All rights reserved.</p>
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 w-full">
+                        <div className="flex flex-col md:flex-row items-center gap-2">
+                            <p className="text-white">&copy; {currentYear} Sarvagun Enterprises. All rights reserved.</p>
+                            <span className="hidden md:inline text-white">|</span>
+                            <p className="text-white">Designed by <a href="https://elvion.in" target="_blank" rel="noopener noreferrer" className="text-[#3cacae] hover:text-white transition-colors font-medium">Elvion</a></p>
+                        </div>
                         <div className="flex items-center gap-8">
                             <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
                             <Link href="#" className="hover:text-white transition-colors">Terms</Link>
